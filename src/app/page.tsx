@@ -1,5 +1,4 @@
 import Navbar        from "@/components/Navbar";
-import TrustBar      from "@/components/TrustBar";
 import Hero          from "@/components/Hero";
 import Marquee       from "@/components/Marquee";
 import About         from "@/components/About";
@@ -22,7 +21,6 @@ export default function Home() {
       <AosInit />
       <a href="#main" className="skip-to-main">Aller au contenu principal</a>
       <Navbar />
-      <TrustBar />
       <main id="main">
         <Hero />
         <Marquee />
