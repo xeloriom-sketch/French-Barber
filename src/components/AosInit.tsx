@@ -3,10 +3,9 @@ import { useEffect } from "react";
 
 export default function AosInit() {
   useEffect(() => {
-    import("aos").then((AOS) => {
-      AOS.default.init({ offset: 100, duration: 800, easing: "ease-out-cubic", once: true });
+    Promise.all([import("aos"), import("aos/dist/aos.css")]).then(([AOS]) => {
+      AOS.default.init({ offset: 80, duration: 700, easing: "ease-out-quad", once: true, disable: false });
     });
-    import("aos/dist/aos.css");
   }, []);
   return null;
 }
