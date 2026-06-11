@@ -54,10 +54,9 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "HairSalon",
+const jsonLdSalon = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
     "@id": "https://xeloriom-sketch.github.io/French-Barber/#salon",
     name: "French Barber",
     description: "Barbershop premium à Lagnieu, spécialisé en coupe homme, taille de barbe et rasage traditionnel au coupe-choux.",
@@ -103,23 +102,24 @@ const jsonLd = [
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Pack Complet" }, price: "55", priceCurrency: "EUR" },
       ],
     },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      { "@type": "Question", name: "Faut-il réserver à l'avance chez French Barber ?", acceptedAnswer: { "@type": "Answer", text: "La réservation est recommandée pour garantir votre créneau, mais nous accueillons également les clients sans rendez-vous selon nos disponibilités." } },
-      { "@type": "Question", name: "Où se trouve French Barber à Lagnieu ?", acceptedAnswer: { "@type": "Answer", text: "French Barber est situé au 36 route du port, 01150 Lagnieu, dans l'Ain." } },
-      { "@type": "Question", name: "Quels sont les horaires de French Barber ?", acceptedAnswer: { "@type": "Answer", text: "Nous sommes ouverts du lundi au vendredi de 9h à 19h et le samedi de 9h à 18h." } },
-    ],
-  },
-];
+};
+
+const jsonLdFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Faut-il réserver à l'avance chez French Barber ?", acceptedAnswer: { "@type": "Answer", text: "La réservation est recommandée pour garantir votre créneau, mais nous accueillons également les clients sans rendez-vous selon nos disponibilités." } },
+    { "@type": "Question", name: "Où se trouve French Barber à Lagnieu ?", acceptedAnswer: { "@type": "Answer", text: "French Barber est situé au 36 route du port, 01150 Lagnieu, dans l'Ain." } },
+    { "@type": "Question", name: "Quels sont les horaires de French Barber ?", acceptedAnswer: { "@type": "Answer", text: "Nous sommes ouverts du lundi au vendredi de 9h à 19h et le samedi de 9h à 18h." } },
+  ],
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${bebasNeue.variable} ${inter.variable} ${syne.variable}`}>
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSalon) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
