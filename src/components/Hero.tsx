@@ -10,12 +10,23 @@ export default function Hero() {
   const videoRef  = useRef<HTMLVideoElement>(null);
   const firedRef  = useRef(false);
 
-  /* Fix iOS Safari : forcer muted via prop JS + play */
+  /* iOS Safari : forcer tous les attributs nécessaires via JS */
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.muted = true;
-    v.play().catch(() => {});
+
+    v.muted        = true;
+    (v as any).defaultMuted = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("autoplay", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    v.setAttribute("x-webkit-airplay", "deny");
+    v.controls = false;
+
+    const play = () => { v.play().catch(() => {}); };
+    if (v.readyState >= 3) { play(); }
+    else { v.addEventListener("canplay", play, { once: true }); }
   }, []);
 
   /* Scroll-driven sur desktop uniquement */
@@ -77,12 +88,13 @@ export default function Hero() {
         {/* Video : attributs HTML + muted forcé via ref */}
         <video
           ref={videoRef}
-          autoPlay
           loop
           playsInline
           preload="auto"
           className="absolute w-full h-full object-cover object-center pointer-events-none"
           style={{ opacity: 0.42, top: 0, left: 0, right: 0, bottom: 0 }}
+          /* @ts-expect-error webkit-playsinline */
+          webkit-playsinline=""
         >
           <source src={`${basePath}/hero.mp4`} type="video/mp4" />
         </video>
