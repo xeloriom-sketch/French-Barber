@@ -37,12 +37,10 @@ export default function Hero() {
     };
   }, []);
 
-  /* Scroll-driven sur desktop uniquement */
+  /* Scroll-driven sur tous les appareils */
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!isDesktop) return;
 
     let target = 0, current = 0, raf: number;
 
@@ -91,23 +89,30 @@ export default function Hero() {
       style={{ background: "radial-gradient(circle at 50% 50%, #3a4646 0%, #222a2a 60%, #171d1d 100%)" }}>
 
       {/* Vidéo background */}
-      <div className="absolute inset-0 z-0">
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
         <video
           ref={videoRef}
           loop
           playsInline
           preload="auto"
           poster={`${basePath}/client-2.webp`}
-          className="absolute w-full h-full object-cover object-center pointer-events-none"
-          style={{ opacity: 0.45, top: 0, left: 0, right: 0, bottom: 0 }}
+          style={{
+            position: "absolute",
+            top: "50%", left: "50%",
+            transform: "translate(-50%, -50%)",
+            minWidth: "100%", minHeight: "100%",
+            width: "auto", height: "auto",
+            objectFit: "cover",
+            opacity: 0.5,
+            pointerEvents: "none",
+          }}
         >
           <source src={`${basePath}/hero.mp4`} type="video/mp4" />
         </video>
-        <div className="absolute inset-0" style={{ background: "rgba(13,13,13,.45)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(13,13,13,.5)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/30 to-[#0d0d0d]/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/70 via-transparent to-[#0d0d0d]/30" />
-        <div className="absolute bottom-0 left-0 right-0 pointer-events-none"
-          style={{ height: "28vh", background: "linear-gradient(to bottom, transparent 0%, #0d0d0d 100%)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "28vh", background: "linear-gradient(to bottom, transparent 0%, #0d0d0d 100%)", pointerEvents: "none" }} />
       </div>
 
       <div className="w-full h-24 relative z-10" />
