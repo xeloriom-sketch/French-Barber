@@ -19,17 +19,53 @@ export default function Hero() {
     const v = document.createElement("video");
     v.src         = `${basePath}/hero.mp4`;
     v.muted       = true;
-    v.autoplay    = true;
-    v.loop        = true;
     v.preload     = "auto";
     v.playsInline = true;
     v.setAttribute("playsinline", "");
     v.setAttribute("muted", "");
     v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;filter:grayscale(100%);pointer-events:none;position:absolute;inset:0;";
     div.appendChild(v);
-    v.play().catch(() => {});
 
-    return () => { v.remove(); };
+    const isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+    if (isMobile) {
+      /* Mobile : autoplay en boucle, iOS ne bloque pas les vidéos sans audio */
+      v.autoplay = true;
+      v.loop     = true;
+      v.play().catch(() => {});
+      return () => { v.remove(); };
+    }
+
+    /* Desktop : scroll-driven avec lerp */
+    let target  = 0;
+    let current = 0;
+    let raf: number;
+
+    const tick = () => {
+      const diff = target - current;
+      if (Math.abs(diff) > 0.001) {
+        current += diff * 0.12;
+        if (v.duration) v.currentTime = current;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    const range = window.innerHeight * 0.4;
+    const onScroll = () => {
+      if (!v.duration) return;
+      const t = Math.min(Math.max(window.scrollY / range, 0), 1);
+      target = t * v.duration;
+    };
+
+    v.addEventListener("loadedmetadata", onScroll, { once: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      v.remove();
+    };
   }, []);
 
   /* ── Attend la fin du loader pour lancer les animations ── */
