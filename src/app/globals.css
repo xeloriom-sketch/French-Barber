@@ -324,6 +324,14 @@ body::before {
     repeating-linear-gradient(90deg, transparent, transparent 36px, rgba(255,255,255,.012) 36px, rgba(255,255,255,.012) 37px);
 }
 
+/* ── MASQUER CONTRÔLES VIDÉO NATIFS (iOS Safari) ─── */
+video::-webkit-media-controls            { display: none !important; }
+video::-webkit-media-controls-enclosure { display: none !important; }
+video::-webkit-media-controls-panel     { display: none !important; }
+video::-webkit-media-controls-play-button { display: none !important; }
+video::-webkit-media-controls-start-playback-button { display: none !important; }
+video { -webkit-appearance: none; }
+
 /* ── RESPONSIVE ───────────────────────────────────── */
 @media (max-width: 767px) {
   .section-title { font-size: clamp(2.4rem, 11vw, 3.8rem) !important; }
