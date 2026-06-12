@@ -19,44 +19,17 @@ export default function Hero() {
     const v = document.createElement("video");
     v.src         = `${basePath}/hero.mp4`;
     v.muted       = true;
+    v.autoplay    = true;
+    v.loop        = true;
     v.preload     = "auto";
     v.playsInline = true;
     v.setAttribute("playsinline", "");
     v.setAttribute("muted", "");
     v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;filter:grayscale(100%);pointer-events:none;position:absolute;inset:0;";
     div.appendChild(v);
+    v.play().catch(() => {});
 
-    let target  = 0;
-    let current = 0;
-    let raf: number;
-
-    /* Lerp smooth sur currentTime */
-    const tick = () => {
-      const diff = target - current;
-      if (Math.abs(diff) > 0.001) {
-        current += diff * 0.06; /* 0.06 = très doux */
-        if (v.duration) v.currentTime = current;
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-
-    const onScroll = () => {
-      if (!v.duration) return;
-      const section   = sectionRef.current;
-      const scrollable = (section?.offsetHeight ?? window.innerHeight) - window.innerHeight;
-      const t = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
-      target  = t * v.duration;
-    };
-
-    v.addEventListener("loadedmetadata", onScroll, { once: true });
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      v.remove();
-    };
+    return () => { v.remove(); };
   }, []);
 
   /* ── Attend la fin du loader pour lancer les animations ── */
@@ -75,14 +48,9 @@ export default function Hero() {
   }, []);
 
   return (
-    /* Section haute (200vh) → le sticky garde la vue pendant que l'on scroll */
     <section ref={sectionRef} id="hero" aria-label="French Barber — Barbershop à Lagnieu"
-      className="relative select-none"
-      style={{ height: "200vh" }}>
-
-      {/* Contenu sticky — reste visible tout le temps du scroll */}
-      <div className="sticky top-0 h-screen text-[#f0ede6] flex flex-col justify-between overflow-hidden font-sans"
-        style={{ background: "radial-gradient(circle at 50% 50%, #3a4646 0%, #222a2a 60%, #171d1d 100%)" }}>
+      className="relative w-full min-h-screen text-[#f0ede6] flex flex-col justify-between overflow-hidden select-none font-sans"
+      style={{ background: "radial-gradient(circle at 50% 50%, #3a4646 0%, #222a2a 60%, #171d1d 100%)" }}>
 
         {/* Vidéo */}
         <div className="absolute inset-0 z-0">
@@ -146,7 +114,6 @@ export default function Hero() {
           </motion.div>
         </footer>
 
-      </div>
     </section>
   );
 }

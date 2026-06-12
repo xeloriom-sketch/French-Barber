@@ -4,11 +4,15 @@ import FadeUp from "./FadeUp";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 const reviews = [
-  { initials: "TR", name: "Thomas R.", type: "Client régulier",  stars: 5, text: "Meilleure coupe que j'aie eu depuis longtemps. Mehdi prend le temps d'écouter et le résultat dépasse les attentes." },
-  { initials: "JL", name: "Julien L.", type: "Client vérifié",   stars: 5, text: "Le rasage au coupe-choux ici c'est une expérience. Serviette chaude, savon artisanal, geste précis. On repart revitalisé." },
-  { initials: "SA", name: "Sofiane A.",type: "Client régulier",  stars: 5, text: "French Barber c'est LE barbershop de Lagnieu. Lucas m'a redessiné la barbe comme jamais. Je recommande à 100%." },
-  { initials: "MC", name: "Mathieu C.",type: "Client vérifié",   stars: 5, text: "Réservation facile, accueil chaleureux, coupe parfaite. Le Pack Complet vaut vraiment le coup." },
-  { initials: "RB", name: "Romain B.", type: "Client régulier",  stars: 5, text: "Je fais le déplacement depuis Ambérieu. Ça dit tout. Qualité incomparable dans la région." },
+  { initials: "KB", name: "Karim Belghoul",     type: "Avis Google",   stars: 5, text: "Franchement au top. Super accueil, ambiance cool et surtout une coupe parfaite." },
+  { initials: "JD", name: "Jack du01",           type: "Avis Google",   stars: 5, text: "Très pro, fait la coupe spéciale homme que l'on souhaite pour un prix raisonnable. Très bon accueil, je recommande 👍" },
+  { initials: "LV", name: "Lea Vertu",           type: "Avis Google",   stars: 5, text: "Super accueil, très pro et une équipe sympathique." },
+  { initials: "OD", name: "Omar D'Ambrogi",      type: "Avis Google",   stars: 5, text: "Un service impeccable, des coiffeurs très professionnels." },
+  { initials: "II", name: "Issam Imarzouk",      type: "Avis Google",   stars: 5, text: "Super belle coupe et barbe, parfait. Je recommande le coiffeur, très professionnel et très bon dans ce qu'il fait." },
+  { initials: "FS", name: "Fay San",             type: "Avis Google",   stars: 5, text: "Au top ! Coupe, barbe, soins du visage — tout était ok et très propre (rasoir désinfecté etc)." },
+  { initials: "AB", name: "Abdel",               type: "Avis Google",   stars: 5, text: "Je recommande ce salon de coiffure exceptionnel, une équipe très sympathique et accueillante, très beau décor intérieur." },
+  { initials: "NS", name: "Nadia Sengonul",      type: "Avis Google",   stars: 5, text: "Endroit très propre, les coiffeurs sont des pros, le personnel est très poli. Maintenant j'ai choisi mon coiffeur à Lagnieu, ça sera toujours French Barber." },
+  { initials: "MI", name: "Mikeul",              type: "Avis Google",   stars: 5, text: "Première chez un barbier. Très satisfait, professionnel, accueillant et surtout tarif coupe + barbe + rasage plus que raisonnable." },
 ];
 
 export default function Testimonials() {
@@ -28,7 +32,7 @@ export default function Testimonials() {
 
           <div className="lg:col-span-7">
             {reviews.map((r, i) => (
-              <FadeUp key={r.name} delay={i * 0.08}>
+              <FadeUp key={r.name} delay={i * 0.06}>
               <div className="py-6" style={{ borderBottom: "1px solid rgba(240,237,230,.07)" }}>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="flex items-center justify-center flex-shrink-0"
@@ -62,12 +66,12 @@ export default function Testimonials() {
             <div className="flex items-center gap-5 p-5 w-full"
               style={{ border: "1px solid rgba(240,237,230,.08)", background: "rgba(240,237,230,.02)" }}>
               <div className="text-center">
-                <p style={{ fontFamily: "var(--font-title)", fontSize: "3rem", color: "#f0ede6", lineHeight: 1 }}>4.9</p>
+                <p style={{ fontFamily: "var(--font-title)", fontSize: "3rem", color: "#f0ede6", lineHeight: 1 }}>4.7</p>
                 <div style={{ color: "rgba(240,237,230,.4)", fontSize: ".8rem", marginTop: ".2rem", letterSpacing: ".05em" }}>★★★★★</div>
               </div>
               <div style={{ width: 1, height: 48, background: "rgba(240,237,230,.1)" }} />
               <div>
-                <p style={{ fontFamily: "var(--font-accent)", fontSize: ".65rem", color: "rgba(240,237,230,.6)", fontWeight: 600 }}>47 avis Google</p>
+                <p style={{ fontFamily: "var(--font-accent)", fontSize: ".65rem", color: "rgba(240,237,230,.6)", fontWeight: 600 }}>103 avis Google</p>
                 <p style={{ fontFamily: "var(--font-sans)", fontSize: ".75rem", color: "rgba(240,237,230,.3)", marginTop: ".2rem" }}>French Barber · Lagnieu</p>
               </div>
             </div>
