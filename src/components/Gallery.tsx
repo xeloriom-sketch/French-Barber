@@ -4,9 +4,9 @@ import FadeUp from "./FadeUp";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 const photos = [
-  { src: `${basePath}/client-1.png`,                        cls: "g1", minH: 300, alt: "Coupe client French Barber Lagnieu", real: true },
-  { src: `${basePath}/client-2.png`,                        cls: "g2", minH: 200, alt: "Résultat coupe French Barber", real: true },
-  { src: `${basePath}/client-3.png`,                        cls: "g3", minH: 200, alt: "Barbe sculptée French Barber", real: true },
+  { src: `${basePath}/client-1.webp`,                        cls: "g1", minH: 300, alt: "Coupe client French Barber Lagnieu", real: true },
+  { src: `${basePath}/client-2.webp`,                        cls: "g2", minH: 200, alt: "Résultat coupe French Barber", real: true },
+  { src: `${basePath}/client-3.webp`,                        cls: "g3", minH: 200, alt: "Barbe sculptée French Barber", real: true },
   { src: "https://picsum.photos/id/1062/600/400?grayscale", cls: "g4", minH: 180, alt: "Fade moderne" },
   { src: "https://picsum.photos/id/1074/400/400?grayscale", cls: "g5", minH: 180, alt: "Style cheveux premium" },
   { src: "https://picsum.photos/id/1072/600/400?grayscale", cls: "g6", minH: 180, alt: "Finition rasage" },

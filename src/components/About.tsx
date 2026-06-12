@@ -36,7 +36,7 @@ export default function About() {
             <FadeUp delay={0.3}>
               <div className="mt-16 md:mt-24 relative flex items-end gap-6">
                 <div className="w-48 h-48 bg-[#141414] border border-[#f0ede6]/10 p-4 flex items-center justify-center overflow-hidden">
-                  <img src={`${basePath}/client-1.png`} alt="Client French Barber"
+                  <img src={`${basePath}/client-1.webp`} alt="Client French Barber"
                     className="w-full h-full object-cover object-top grayscale opacity-80" />
                 </div>
                 <div className="absolute -top-12 left-32 w-28 h-28 pointer-events-none select-none hidden sm:block">
@@ -53,7 +53,7 @@ export default function About() {
 
           <FadeUp delay={0.15} className="lg:col-span-7 w-full h-full flex justify-end">
             <div className="w-full lg:max-w-2xl aspect-[4/3] lg:aspect-auto lg:h-[550px] overflow-hidden bg-[#111] border border-[#f0ede6]/05 relative">
-              <img src={`${basePath}/client-2.png`} alt="Coupe réalisée chez French Barber"
+              <img src={`${basePath}/client-2.webp`} alt="Coupe réalisée chez French Barber"
                 className="w-full h-full object-cover object-center grayscale contrast-115 transition-transform duration-700 hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/40 via-transparent to-transparent pointer-events-none" />
             </div>

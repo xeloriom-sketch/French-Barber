@@ -29,10 +29,14 @@ export default function Hero() {
     const isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
     if (isMobile) {
-      /* Mobile : autoplay en boucle, iOS ne bloque pas les vidéos sans audio */
       v.autoplay = true;
       v.loop     = true;
-      v.play().catch(() => {});
+      v.setAttribute("autoplay", "");
+      v.setAttribute("loop", "");
+      const tryPlay = () => v.play().catch(() => {});
+      v.addEventListener("canplaythrough", tryPlay, { once: true });
+      v.addEventListener("loadeddata",     tryPlay, { once: true });
+      tryPlay();
       return () => { v.remove(); };
     }
 

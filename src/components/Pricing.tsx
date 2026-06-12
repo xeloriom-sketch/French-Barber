@@ -90,7 +90,7 @@ export default function Pricing() {
           <div className="lg:col-span-5 flex flex-col items-start gap-8">
             <div className="w-full aspect-[3/4] overflow-hidden bg-[#111] border border-[#f0ede6]/05 relative">
               <img
-                src={`${basePath}/client-3.png`}
+                src={`${basePath}/client-3.webp`}
                 alt="Coupe réalisée chez French Barber"
                 className="w-full h-full object-cover object-center grayscale contrast-115 transition-transform duration-700 hover:scale-105"
               />

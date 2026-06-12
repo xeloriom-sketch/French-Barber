@@ -58,7 +58,7 @@ export default function Process() {
 
           <div className="lg:col-span-5 flex flex-col items-start gap-8">
             <div className="w-full aspect-[3/4] overflow-hidden bg-[#111] border border-[#f0ede6]/05 relative">
-              <img src={`${basePath}/client photo.png`} alt="Expérience French Barber"
+              <img src={`${basePath}/client photo.webp`} alt="Expérience French Barber"
                 className="w-full h-full object-cover object-center grayscale contrast-115 transition-transform duration-700 hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/50 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4">
