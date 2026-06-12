@@ -82,30 +82,23 @@ export default function Hero() {
       className="relative w-full min-h-screen text-[#f0ede6] flex flex-col justify-between overflow-hidden select-none font-sans"
       style={{ background: "radial-gradient(circle at 50% 50%, #3a4646 0%, #222a2a 60%, #171d1d 100%)" }}>
 
-      {/* Vidéo — aucun filter CSS sur la video pour compatibilité iOS */}
-      <div className="absolute inset-0 z-0" style={{ isolation: "isolate" }}>
-
-        {/* Video : attributs HTML + muted forcé via ref */}
+      {/* Vidéo background */}
+      <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
           loop
           playsInline
           preload="auto"
           className="absolute w-full h-full object-cover object-center pointer-events-none"
-          style={{ opacity: 0.42, top: 0, left: 0, right: 0, bottom: 0 }}
+          style={{ opacity: 0.45, top: 0, left: 0, right: 0, bottom: 0 }}
         >
           <source src={`${basePath}/hero.mp4`} type="video/mp4" />
         </video>
-
-        {/* Overlay mix-blend-mode:color → désaturation sans filter CSS */}
-        <div className="absolute inset-0" style={{ background: "#555", mixBlendMode: "color", zIndex: 1 }} />
-
-        {/* Voiles sombres */}
-        <div className="absolute inset-0" style={{ background: "rgba(13,13,13,.4)", zIndex: 2 }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/30 to-[#0d0d0d]/75" style={{ zIndex: 2 }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/70 via-transparent to-[#0d0d0d]/30" style={{ zIndex: 2 }} />
+        <div className="absolute inset-0" style={{ background: "rgba(13,13,13,.45)" }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/30 to-[#0d0d0d]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/70 via-transparent to-[#0d0d0d]/30" />
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none"
-          style={{ height: "28vh", background: "linear-gradient(to bottom, transparent 0%, #0d0d0d 100%)", zIndex: 2 }} />
+          style={{ height: "28vh", background: "linear-gradient(to bottom, transparent 0%, #0d0d0d 100%)" }} />
       </div>
 
       <div className="w-full h-24 relative z-10" />
