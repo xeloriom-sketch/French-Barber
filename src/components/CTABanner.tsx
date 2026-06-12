@@ -18,7 +18,7 @@ export default function CTABanner() {
             </h2>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col" style={{ gap: "2.5rem" }}>
+          <div className="lg:col-span-5 flex flex-row items-end" style={{ gap: "3rem" }}>
             <FadeUp delay={0.2}>
               <a href="#booking"
                 style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.3)", paddingBottom: ".3rem", transition: "border-color .3s", display: "inline-block", whiteSpace: "nowrap" }}
