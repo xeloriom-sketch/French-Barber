@@ -16,19 +16,33 @@ export default function Hero() {
     if (!div) return;
 
     const v = document.createElement("video");
-    v.src         = `${basePath}/hero.mp4`;
-    v.muted       = true;
-    v.autoplay    = true;
-    v.loop        = true;
+    v.src      = `${basePath}/hero.mp4`;
+    v.muted    = true;
+    v.preload  = "auto";
     v.playsInline = true;
     v.setAttribute("playsinline", "");
     v.setAttribute("muted", "");
     v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;filter:grayscale(100%);pointer-events:none;position:absolute;inset:0;";
 
     div.appendChild(v);
-    v.play().catch(() => {});
 
-    return () => { v.remove(); };
+    /* ── Scroll-driven video : pas d'autoplay, Safari ne peut pas bloquer ── */
+    const onScroll = () => {
+      if (!v.duration) return;
+      /* La vidéo couvre 2× la hauteur du hero pour un rythme doux */
+      const heroH  = div.closest("section")?.clientHeight ?? window.innerHeight;
+      const range  = heroH * 2;
+      const t      = Math.min(Math.max(window.scrollY / range, 0), 1);
+      v.currentTime = t * v.duration;
+    };
+
+    v.addEventListener("loadedmetadata", onScroll, { once: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      v.remove();
+    };
   }, []);
 
   useEffect(() => {
