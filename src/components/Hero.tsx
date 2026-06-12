@@ -23,7 +23,9 @@ export default function Hero() {
     v.playsInline = true;
     v.setAttribute("playsinline", "");
     v.setAttribute("muted", "");
-    v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;filter:grayscale(100%);pointer-events:none;position:absolute;inset:0;";
+    v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;pointer-events:none;position:absolute;inset:0;";
+    /* Le grayscale est appliqué sur le containerRef via CSS, pas sur la vidéo (bug iOS Safari) */
+    div.style.filter = "grayscale(100%)";
     div.appendChild(v);
 
     /* Autoplay sur tous les appareils (pas de piste audio = pas de blocage) */
