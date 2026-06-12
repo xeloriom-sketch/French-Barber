@@ -11,9 +11,9 @@ export default function About() {
         <div className="w-full mb-16 md:mb-24">
           <h2 className="text-left text-white uppercase font-bold tracking-tight max-w-4xl"
             style={{ fontSize: "clamp(2rem, 5.5vw, 4.5rem)", lineHeight: "1.05", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
-            <SplitText tag="span" style={{ display: "block" }} delay={0}>A Gentlemen</SplitText>
-            <SplitText tag="span" style={{ display: "block" }} delay={0.12}>Collective and Premium</SplitText>
-            <SplitText tag="span" style={{ display: "block" }} delay={0.24}>Services.</SplitText>
+            <SplitText tag="span" style={{ display: "block" }} delay={0}>Un Savoir-Faire</SplitText>
+            <SplitText tag="span" style={{ display: "block" }} delay={0.12}>Artisanal Et Des</SplitText>
+            <SplitText tag="span" style={{ display: "block" }} delay={0.24}>Services Premium.</SplitText>
           </h2>
         </div>
 
@@ -23,12 +23,12 @@ export default function About() {
             <div className="space-y-6 max-w-md">
               <FadeUp delay={0.1}>
                 <p className="text-[#f0ede6]/60 font-light" style={{ fontSize: "0.9rem", lineHeight: "1.8", fontFamily: "var(--font-sans)" }}>
-                  More than a barber shop, we provide high-quality with the barber services and our local products specially designed for men.
+                  Bien plus qu&apos;un simple barbershop — nous proposons des prestations haut de gamme et des produits locaux spécialement sélectionnés pour les hommes.
                 </p>
               </FadeUp>
               <FadeUp delay={0.2}>
                 <p className="text-[#f0ede6]/60 font-light" style={{ fontSize: "0.9rem", lineHeight: "1.8", fontFamily: "var(--font-sans)" }}>
-                  We care about your hair and want your haircut done right. Our barber masters are at your disposal to advise you, and are available to help you to choose your haircut.
+                  Nous prenons soin de vos cheveux et voulons que votre coupe soit parfaite. Nos barbiers sont à votre disposition pour vous conseiller et vous aider à trouver le style qui vous correspond.
                 </p>
               </FadeUp>
             </div>
@@ -43,7 +43,7 @@ export default function About() {
                   <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_25s_linear_infinite] opacity-30 fill-[#f0ede6]">
                     <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" />
                     <text className="text-[6.5px] tracking-[0.22em] uppercase font-medium">
-                      <textPath href="#circlePath">ESTABLISHED IN 1989 • BARBER SHOP •</textPath>
+                      <textPath href="#circlePath">FRENCH BARBER • LAGNIEU • DEPUIS 1998 •</textPath>
                     </text>
                   </svg>
                 </div>

@@ -69,7 +69,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -20 }}
           animate={ready ? { opacity: 0.4, x: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}>
-          <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Since 1998</span>
+          <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Depuis 1998</span>
           <span className="w-8 h-[1px] bg-[#f0ede6]" />
         </motion.div>
 
@@ -77,8 +77,8 @@ export default function Hero() {
           style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)", lineHeight: "0.9", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
           {ready && (
             <>
-              <SplitText tag="span" style={{ display: "block" }} delay={0.2}>A Gentleman&apos;s</SplitText>
-              <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Collective</SplitText>
+              <SplitText tag="span" style={{ display: "block" }} delay={0.2}>L&apos;Art Du</SplitText>
+              <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Barbier.</SplitText>
             </>
           )}
         </h1>
@@ -89,7 +89,7 @@ export default function Hero() {
           transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}>
           <a href="#booking"
             className="text-[11px] tracking-[0.25em] uppercase text-[#f0ede6]/80 group-hover:text-white transition-colors duration-300 pb-2 block">
-            Book Now
+            Réserver maintenant
           </a>
           <span className="absolute bottom-0 left-0 w-12 h-[1px] bg-[#f0ede6]/40 group-hover:w-20 transition-all duration-300" />
         </motion.div>
@@ -100,7 +100,7 @@ export default function Hero() {
           initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
           transition={{ delay: 1.1, duration: 0.8 }}
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: ".3em", color: "rgba(240,237,230,.25)", fontSize: "9px", textTransform: "uppercase" }}>
-          SCROLL
+          DÉFILER
         </motion.span>
         <motion.div className="flex items-center gap-5"
           initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
