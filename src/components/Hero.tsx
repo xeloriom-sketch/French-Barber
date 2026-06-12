@@ -26,21 +26,19 @@ export default function Hero() {
     v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;filter:grayscale(100%);pointer-events:none;position:absolute;inset:0;";
     div.appendChild(v);
 
-    const isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    /* Autoplay sur tous les appareils (pas de piste audio = pas de blocage) */
+    v.autoplay = true;
+    v.loop     = true;
+    v.setAttribute("autoplay", "");
+    v.setAttribute("loop", "");
+    const tryPlay = () => v.play().catch(() => {});
+    v.addEventListener("canplaythrough", tryPlay, { once: true });
+    v.addEventListener("loadeddata",     tryPlay, { once: true });
+    tryPlay();
 
-    if (isMobile) {
-      v.autoplay = true;
-      v.loop     = true;
-      v.setAttribute("autoplay", "");
-      v.setAttribute("loop", "");
-      const tryPlay = () => v.play().catch(() => {});
-      v.addEventListener("canplaythrough", tryPlay, { once: true });
-      v.addEventListener("loadeddata",     tryPlay, { once: true });
-      tryPlay();
-      return () => { v.remove(); };
-    }
-
-    /* Desktop : scroll-driven avec lerp */
+    /* Scroll-driven en plus sur desktop */
+    const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (!isDesktop) return () => { v.remove(); };
     let target  = 0;
     let current = 0;
     let raf: number;
