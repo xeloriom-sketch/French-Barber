@@ -93,8 +93,6 @@ export default function Hero() {
           preload="auto"
           className="absolute w-full h-full object-cover object-center pointer-events-none"
           style={{ opacity: 0.42, top: 0, left: 0, right: 0, bottom: 0 }}
-          /* @ts-expect-error webkit-playsinline */
-          webkit-playsinline=""
         >
           <source src={`${basePath}/hero.mp4`} type="video/mp4" />
         </video>
