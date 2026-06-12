@@ -6,44 +6,26 @@ import SplitText from "./SplitText";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 export default function Hero() {
-  const [ready, setReady]   = useState(false);
-  const sectionRef          = useRef<HTMLElement>(null);
-  const containerRef        = useRef<HTMLDivElement>(null);
-  const firedRef            = useRef(false);
+  const [ready, setReady] = useState(false);
+  const videoRef  = useRef<HTMLVideoElement>(null);
+  const firedRef  = useRef(false);
 
-  /* ── Vidéo scroll-driven avec lerp pour douceur ── */
+  /* Fix iOS Safari : forcer muted via prop JS + play */
   useEffect(() => {
-    const div = containerRef.current;
-    if (!div) return;
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
 
-    const v = document.createElement("video");
-    v.src         = `${basePath}/hero.mp4`;
-    v.muted       = true;
-    v.preload     = "auto";
-    v.playsInline = true;
-    v.setAttribute("playsinline", "");
-    v.setAttribute("muted", "");
-    v.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.38;pointer-events:none;position:absolute;inset:0;";
-    /* Le grayscale est appliqué sur le containerRef via CSS, pas sur la vidéo (bug iOS Safari) */
-    div.style.filter = "grayscale(100%)";
-    div.appendChild(v);
-
-    /* Autoplay sur tous les appareils (pas de piste audio = pas de blocage) */
-    v.autoplay = true;
-    v.loop     = true;
-    v.setAttribute("autoplay", "");
-    v.setAttribute("loop", "");
-    const tryPlay = () => v.play().catch(() => {});
-    v.addEventListener("canplaythrough", tryPlay, { once: true });
-    v.addEventListener("loadeddata",     tryPlay, { once: true });
-    tryPlay();
-
-    /* Scroll-driven en plus sur desktop */
+  /* Scroll-driven sur desktop uniquement */
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
     const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!isDesktop) return () => { v.remove(); };
-    let target  = 0;
-    let current = 0;
-    let raf: number;
+    if (!isDesktop) return;
+
+    let target = 0, current = 0, raf: number;
 
     const tick = () => {
       const diff = target - current;
@@ -58,21 +40,18 @@ export default function Hero() {
     const range = window.innerHeight * 0.4;
     const onScroll = () => {
       if (!v.duration) return;
-      const t = Math.min(Math.max(window.scrollY / range, 0), 1);
-      target = t * v.duration;
+      target = Math.min(Math.max(window.scrollY / range, 0), 1) * v.duration;
     };
-
     v.addEventListener("loadedmetadata", onScroll, { once: true });
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
-      v.remove();
     };
   }, []);
 
-  /* ── Attend la fin du loader pour lancer les animations ── */
+  /* Attend la fin du loader */
   useEffect(() => {
     const trigger = () => {
       if (firedRef.current) return;
@@ -88,72 +67,86 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="hero" aria-label="French Barber — Barbershop à Lagnieu"
+    <section id="hero" aria-label="French Barber — Barbershop à Lagnieu"
       className="relative w-full min-h-screen text-[#f0ede6] flex flex-col justify-between overflow-hidden select-none font-sans"
       style={{ background: "radial-gradient(circle at 50% 50%, #3a4646 0%, #222a2a 60%, #171d1d 100%)" }}>
 
-        {/* Vidéo */}
-        <div className="absolute inset-0 z-0">
-          <div ref={containerRef} className="absolute inset-0" />
-          <div className="absolute inset-0" style={{ background: "rgba(13,13,13,.35)" }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/30 to-[#0d0d0d]/75" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/70 via-transparent to-[#0d0d0d]/30" />
-          <div className="absolute bottom-0 left-0 right-0 pointer-events-none"
-            style={{ height: "28vh", background: "linear-gradient(to bottom, transparent 0%, #0d0d0d 100%)" }} />
-        </div>
+      {/* Vidéo — aucun filter CSS sur la video pour compatibilité iOS */}
+      <div className="absolute inset-0 z-0" style={{ isolation: "isolate" }}>
 
-        <div className="w-full h-24 relative z-10" />
+        {/* Video : attributs HTML + muted forcé via ref */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          playsInline
+          preload="auto"
+          className="absolute w-full h-full object-cover object-center pointer-events-none"
+          style={{ opacity: 0.42, top: 0, left: 0, right: 0, bottom: 0 }}
+        >
+          <source src={`${basePath}/hero.mp4`} type="video/mp4" />
+        </video>
 
-        {/* Titre */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-16 flex flex-col items-start justify-center my-auto pt-12">
+        {/* Overlay mix-blend-mode:color → désaturation sans filter CSS */}
+        <div className="absolute inset-0" style={{ background: "#555", mixBlendMode: "color", zIndex: 1 }} />
 
-          <motion.div className="flex items-center gap-3 mb-4"
-            initial={{ opacity: 0, x: -20 }}
-            animate={ready ? { opacity: 0.4, x: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}>
-            <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Depuis 1998</span>
-            <span className="w-8 h-[1px] bg-[#f0ede6]" />
-          </motion.div>
+        {/* Voiles sombres */}
+        <div className="absolute inset-0" style={{ background: "rgba(13,13,13,.4)", zIndex: 2 }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/30 to-[#0d0d0d]/75" style={{ zIndex: 2 }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0d]/70 via-transparent to-[#0d0d0d]/30" style={{ zIndex: 2 }} />
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none"
+          style={{ height: "28vh", background: "linear-gradient(to bottom, transparent 0%, #0d0d0d 100%)", zIndex: 2 }} />
+      </div>
 
-          <h1 className="text-left text-white uppercase font-bold tracking-tight select-none mb-8"
-            style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)", lineHeight: "0.9", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
-            {ready && (
-              <>
-                <SplitText tag="span" style={{ display: "block" }} delay={0.2}>L&apos;Art Du</SplitText>
-                <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Barbier.</SplitText>
-              </>
-            )}
-          </h1>
+      <div className="w-full h-24 relative z-10" />
 
-          <motion.div className="group relative mt-2"
-            initial={{ opacity: 0, y: 16 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}>
-            <a href="#booking"
-              className="text-[11px] tracking-[0.25em] uppercase text-[#f0ede6]/80 group-hover:text-white transition-colors duration-300 pb-2 block">
-              Réserver maintenant
-            </a>
-            <span className="absolute bottom-0 left-0 w-12 h-[1px] bg-[#f0ede6]/40 group-hover:w-20 transition-all duration-300" />
-          </motion.div>
-        </div>
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-16 flex flex-col items-start justify-center my-auto pt-12">
 
-        {/* Bas */}
-        <footer className="relative z-30 w-full px-6 md:px-12 py-6 flex justify-between items-center">
-          <motion.span
-            initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
-            transition={{ delay: 1.1, duration: 0.8 }}
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: ".3em", color: "rgba(240,237,230,.25)", fontSize: "9px", textTransform: "uppercase" }}>
-            DÉFILER
-          </motion.span>
-          <motion.div className="flex items-center gap-5"
-            initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
-            transition={{ delay: 1.1, duration: 0.8 }}
-            style={{ color: "rgba(240,237,230,.45)", fontSize: "9px", letterSpacing: ".2em", textTransform: "uppercase" }}>
-            <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Fb</a>
-            <a href="#" className="hover:text-white transition-colors">Ig</a>
-          </motion.div>
-        </footer>
+        <motion.div className="flex items-center gap-3 mb-4"
+          initial={{ opacity: 0, x: -20 }}
+          animate={ready ? { opacity: 0.4, x: 0 } : {}}
+          transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}>
+          <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Depuis 1998</span>
+          <span className="w-8 h-[1px] bg-[#f0ede6]" />
+        </motion.div>
 
+        <h1 className="text-left text-white uppercase font-bold tracking-tight select-none mb-8"
+          style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)", lineHeight: "0.9", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
+          {ready && (
+            <>
+              <SplitText tag="span" style={{ display: "block" }} delay={0.2}>L&apos;Art Du</SplitText>
+              <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Barbier.</SplitText>
+            </>
+          )}
+        </h1>
+
+        <motion.div className="group relative mt-2"
+          initial={{ opacity: 0, y: 16 }}
+          animate={ready ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}>
+          <a href="#booking"
+            className="text-[11px] tracking-[0.25em] uppercase text-[#f0ede6]/80 group-hover:text-white transition-colors duration-300 pb-2 block">
+            Réserver maintenant
+          </a>
+          <span className="absolute bottom-0 left-0 w-12 h-[1px] bg-[#f0ede6]/40 group-hover:w-20 transition-all duration-300" />
+        </motion.div>
+      </div>
+
+      <footer className="relative z-30 w-full px-6 md:px-12 py-6 flex justify-between items-center">
+        <motion.span
+          initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
+          transition={{ delay: 1.1, duration: 0.8 }}
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: ".3em", color: "rgba(240,237,230,.25)", fontSize: "9px", textTransform: "uppercase" }}>
+          DÉFILER
+        </motion.span>
+        <motion.div className="flex items-center gap-5"
+          initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
+          transition={{ delay: 1.1, duration: 0.8 }}
+          style={{ color: "rgba(240,237,230,.45)", fontSize: "9px", letterSpacing: ".2em", textTransform: "uppercase" }}>
+          <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Fb</a>
+          <a href="#" className="hover:text-white transition-colors">Ig</a>
+        </motion.div>
+      </footer>
     </section>
   );
 }
