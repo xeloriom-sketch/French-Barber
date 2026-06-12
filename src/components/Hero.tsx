@@ -10,23 +10,31 @@ export default function Hero() {
   const videoRef  = useRef<HTMLVideoElement>(null);
   const firedRef  = useRef(false);
 
-  /* iOS Safari : forcer tous les attributs nécessaires via JS */
+  /* Forcer la lecture — autoplay direct + fallback sur premier touch iOS */
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
 
-    v.muted        = true;
+    v.muted = true;
     (v as any).defaultMuted = true;
     v.setAttribute("muted", "");
-    v.setAttribute("autoplay", "");
     v.setAttribute("playsinline", "");
     v.setAttribute("webkit-playsinline", "");
-    v.setAttribute("x-webkit-airplay", "deny");
     v.controls = false;
 
     const play = () => { v.play().catch(() => {}); };
-    if (v.readyState >= 3) { play(); }
-    else { v.addEventListener("canplay", play, { once: true }); }
+
+    /* Tentative directe */
+    play();
+    v.addEventListener("canplay", play, { once: true });
+
+    /* Fallback iOS : joue au premier toucher (scroll naturel du user) */
+    const onTouch = () => { play(); };
+    document.addEventListener("touchstart", onTouch, { once: true, passive: true });
+
+    return () => {
+      document.removeEventListener("touchstart", onTouch);
+    };
   }, []);
 
   /* Scroll-driven sur desktop uniquement */
@@ -89,6 +97,7 @@ export default function Hero() {
           loop
           playsInline
           preload="auto"
+          poster={`${basePath}/client-2.webp`}
           className="absolute w-full h-full object-cover object-center pointer-events-none"
           style={{ opacity: 0.45, top: 0, left: 0, right: 0, bottom: 0 }}
         >
