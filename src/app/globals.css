@@ -27,7 +27,9 @@ body {
 :focus-visible { outline: 2px solid #c8864a; outline-offset: 3px; }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: #080808; }
-::-webkit-scrollbar-thumb { background: #c8864a; }
+::-webkit-scrollbar-thumb { background: #5a5650; }
+::-webkit-scrollbar-thumb:hover { background: #f0ede6; }
+* { scrollbar-color: #5a5650 #080808; scrollbar-width: thin; }
 
 /* ── GRAIN ────────────────────────────────────────── */
 body::before {

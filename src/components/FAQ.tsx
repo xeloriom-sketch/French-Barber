@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import SplitText from "./SplitText";
+import FadeUp from "./FadeUp";
 
 const faqs = [
   { q: "Faut-il réserver à l'avance ?", a: "La réservation est recommandée pour garantir votre créneau. Nous acceptons les clients sans rendez-vous selon disponibilités, mais vous risquez d'attendre. Réservez en ligne ou appelez le 07 45 10 74 01." },
@@ -15,42 +17,47 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section id="faq" aria-labelledby="faq-h"
-      style={{ background: "radial-gradient(ellipse at 60% 50%, #1d2727 0%, #161d1d 55%, #101616 100%)" }}>
-      <div className="relative z-10 py-24 md:py-32 px-5 md:px-10 max-w-5xl mx-auto">
+      className="bg-[#0d0d0d] text-[#f0ede6] w-full py-24 md:py-32 overflow-hidden font-sans select-none">
+      <div className="max-w-5xl mx-auto px-6 md:px-12">
 
-        <div className="text-center mb-14" data-aos="fade-up">
-          <span className="section-label mb-4">Questions Fréquentes</span>
-          <h2 id="faq-h" className="section-title">
-            Vos <span className="text-gradient">Questions</span>
+        <div className="mb-16 md:mb-24" data-aos="fade-up">
+          <h2 id="faq-h" className="text-left text-white uppercase font-bold tracking-tight"
+            style={{ fontSize: "clamp(2rem, 5.5vw, 4.5rem)", lineHeight: "1.05", fontFamily: "var(--font-title)" }}>
+            <SplitText tag="span" style={{ display: "block" }} delay={0}>Vos Questions.</SplitText>
+            <SplitText tag="span" style={{ display: "block" }} delay={0.12}>Nos Réponses.</SplitText>
           </h2>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="100">
+        <div data-aos="fade-up" data-aos-delay="80">
           {faqs.map((f, i) => (
-            <div key={i} className={`faq-item ${open === i ? "open" : ""}`}>
-              <button className="faq-btn" onClick={() => setOpen(open === i ? null : i)}
-                aria-expanded={open === i}>
+            <FadeUp key={i} delay={i * 0.06}>
+            <div className={`faq-item ${open === i ? "open" : ""}`}>
+              <button className="faq-btn" onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i}>
                 <span>{f.q}</span>
                 <span className="faq-icon"><i className="fa-solid fa-plus" aria-hidden="true" /></span>
               </button>
               <div className="faq-body">{f.a}</div>
             </div>
+            </FadeUp>
           ))}
         </div>
 
-        <div className="mt-12 p-7 text-center" style={{ background: "rgba(200,134,74,.06)", border: "1px solid rgba(200,134,74,.15)" }} data-aos="fade-up">
-          <p style={{ fontFamily: "var(--font-accent)", fontSize: ".875rem", color: "rgba(240,237,230,.65)", marginBottom: "1rem", fontWeight: 600 }}>
+        <div className="mt-12 pt-10" style={{ borderTop: "1px solid rgba(240,237,230,.07)" }} data-aos="fade-up">
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: ".875rem", color: "rgba(240,237,230,.4)", marginBottom: "1.5rem" }}>
             Vous avez une autre question ?
           </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <a href="tel:+33745107401" className="btn-primary" style={{ fontSize: ".65rem" }}>
-              <i className="fa-solid fa-phone text-[10px]" aria-hidden="true" />07 45 10 74 01
+          <div className="flex flex-wrap gap-8">
+            <a href="tel:+33745107401"
+              style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.3)", paddingBottom: ".3rem" }}>
+              07 45 10 74 01 →
             </a>
-            <a href="mailto:frenchbarber01@gmail.com" className="btn-outline" style={{ fontSize: ".65rem" }}>
-              <i className="fa-solid fa-envelope text-[10px]" aria-hidden="true" />frenchbarber01@gmail.com
+            <a href="mailto:frenchbarber01@gmail.com"
+              style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,237,230,.45)", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.15)", paddingBottom: ".3rem" }}>
+              frenchbarber01@gmail.com →
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,68 +1,64 @@
-const stats = [
-  { num: "5+",  label: "Ans d'expérience" },
-  { num: "800+",label: "Clients satisfaits" },
-  { num: "4.9", label: "Note /5", star: true },
-  { num: "47",  label: "Avis Google" },
-];
+import SplitText from "./SplitText";
+import FadeUp from "./FadeUp";
+
+const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#0d0d0d]">
-      <div className="py-28 md:py-36 px-5 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="bg-[#0d0d0d] text-[#f0ede6] w-full py-24 md:py-32 overflow-hidden font-sans select-none">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-          <div data-aos="fade-up">
-            <span className="section-label mb-5">Notre Histoire</span>
-            <h2 className="section-title mb-8">
-              <span className="text-gradient">L&apos;Art du</span><br />Barbier
-            </h2>
-            <div className="hr-gold mb-8" />
-            <p style={{ fontSize: ".9375rem", color: "rgba(240,237,230,.6)", lineHeight: 1.9 }} className="mb-6">
-              Installé au <strong style={{ color: "rgba(240,237,230,.85)", fontWeight: 500 }}>36 route du port à Lagnieu</strong>, dans l&apos;Ain, <strong style={{ color: "#c8864a", fontWeight: 500 }}>French Barber</strong> est le barbershop premium de référence dans la région. Techniques traditionnelles françaises, produits haut de gamme, résultat impeccable.
-            </p>
-            <p style={{ fontSize: ".9375rem", color: "rgba(240,237,230,.6)", lineHeight: 1.9 }} className="mb-8">
-              De la coupe au rasage au coupe-choux, chaque prestation est une expérience conçue autour de vous — consultation, précision, finition soignée.
-            </p>
-            <div className="flex flex-wrap gap-3 mb-8">
-              <span className="badge"><i className="fa-solid fa-award" aria-hidden="true" />Produits Premium</span>
-              <span className="badge"><i className="fa-solid fa-certificate" aria-hidden="true" />Barbiers Certifiés</span>
-              <span className="badge"><i className="fa-solid fa-shield-halved" aria-hidden="true" />Satisfaction Garantie</span>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a href="#booking" className="btn-primary">Prendre RDV <i className="fa-solid fa-arrow-right text-[10px]" aria-hidden="true" /></a>
-              <a href="tel:+33745107401" className="btn-outline"><i className="fa-solid fa-phone text-[10px]" aria-hidden="true" />07 45 10 74 01</a>
-            </div>
-          </div>
+        <div className="w-full mb-16 md:mb-24">
+          <h2 className="text-left text-white uppercase font-bold tracking-tight max-w-4xl"
+            style={{ fontSize: "clamp(2rem, 5.5vw, 4.5rem)", lineHeight: "1.05", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
+            <SplitText tag="span" style={{ display: "block" }} delay={0}>A Gentlemen</SplitText>
+            <SplitText tag="span" style={{ display: "block" }} delay={0.12}>Collective and Premium</SplitText>
+            <SplitText tag="span" style={{ display: "block" }} delay={0.24}>Services.</SplitText>
+          </h2>
+        </div>
 
-          <div data-aos="fade-up" data-aos-delay="100">
-            <div className="grid grid-cols-2 gap-3">
-              {stats.map((s, i) => (
-                <div key={i} className="card p-7 flex flex-col gap-2" data-aos="fade-up" data-aos-delay={String(150 + i * 60)}>
-                  <div className="stat-num">{s.num}{s.star && <span style={{ color: "#c9a84c" }}>★</span>}</div>
-                  <span style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(240,237,230,.4)", fontWeight: 600 }}>{s.label}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+          <div className="lg:col-span-5 flex flex-col justify-between h-full relative">
+            <div className="space-y-6 max-w-md">
+              <FadeUp delay={0.1}>
+                <p className="text-[#f0ede6]/60 font-light" style={{ fontSize: "0.9rem", lineHeight: "1.8", fontFamily: "var(--font-sans)" }}>
+                  More than a barber shop, we provide high-quality with the barber services and our local products specially designed for men.
+                </p>
+              </FadeUp>
+              <FadeUp delay={0.2}>
+                <p className="text-[#f0ede6]/60 font-light" style={{ fontSize: "0.9rem", lineHeight: "1.8", fontFamily: "var(--font-sans)" }}>
+                  We care about your hair and want your haircut done right. Our barber masters are at your disposal to advise you, and are available to help you to choose your haircut.
+                </p>
+              </FadeUp>
+            </div>
+
+            <FadeUp delay={0.3}>
+              <div className="mt-16 md:mt-24 relative flex items-end gap-6">
+                <div className="w-48 h-48 bg-[#141414] border border-[#f0ede6]/10 p-4 flex items-center justify-center overflow-hidden">
+                  <img src={`${basePath}/client-1.png`} alt="Client French Barber"
+                    className="w-full h-full object-cover object-top grayscale opacity-80" />
                 </div>
-              ))}
-            </div>
-            <div className="card p-6 mt-3" data-aos="fade-up" data-aos-delay="400">
-              <p className="section-label mb-4">Contact Direct</p>
-              <div className="flex flex-col gap-3">
-                {[
-                  { icon: "fa-location-dot", text: "36 route du port, Lagnieu 01150" },
-                  { icon: "fa-phone", text: "07 45 10 74 01", href: "tel:+33745107401" },
-                  { icon: "fa-envelope", text: "frenchbarber01@gmail.com", href: "mailto:frenchbarber01@gmail.com" },
-                ].map(item => (
-                  <div key={item.icon} className="flex items-center gap-3">
-                    <i className={`fa-solid ${item.icon}`} style={{ color: "#c8864a", fontSize: ".7rem", width: 14 }} aria-hidden="true" />
-                    {item.href ? (
-                      <a href={item.href} style={{ fontFamily: "var(--font-sans)", fontSize: ".8rem", color: "rgba(240,237,230,.6)", textDecoration: "none" }} className="hover:text-[#c8864a] transition-colors">{item.text}</a>
-                    ) : (
-                      <span style={{ fontFamily: "var(--font-sans)", fontSize: ".8rem", color: "rgba(240,237,230,.6)" }}>{item.text}</span>
-                    )}
-                  </div>
-                ))}
+                <div className="absolute -top-12 left-32 w-28 h-28 pointer-events-none select-none hidden sm:block">
+                  <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_25s_linear_infinite] opacity-30 fill-[#f0ede6]">
+                    <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" />
+                    <text className="text-[6.5px] tracking-[0.22em] uppercase font-medium">
+                      <textPath href="#circlePath">ESTABLISHED IN 1989 • BARBER SHOP •</textPath>
+                    </text>
+                  </svg>
+                </div>
               </div>
-            </div>
+            </FadeUp>
           </div>
+
+          <FadeUp delay={0.15} className="lg:col-span-7 w-full h-full flex justify-end">
+            <div className="w-full lg:max-w-2xl aspect-[4/3] lg:aspect-auto lg:h-[550px] overflow-hidden bg-[#111] border border-[#f0ede6]/05 relative">
+              <img src={`${basePath}/client-2.png`} alt="Coupe réalisée chez French Barber"
+                className="w-full h-full object-cover object-center grayscale contrast-115 transition-transform duration-700 hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/40 via-transparent to-transparent pointer-events-none" />
+            </div>
+          </FadeUp>
+
         </div>
       </div>
     </section>
