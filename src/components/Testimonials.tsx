@@ -76,7 +76,7 @@ export default function Testimonials() {
               </div>
             </div>
 
-            <a href="https://www.google.com/maps/place/French+Barber/@45.909,5.346,17z/data=!4m8!3m7!1s0x0:0x0!8m2!3d45.909!4d5.346!9m1!1b1"
+            <a href="https://share.google/tdAsviW4g0clCNY5v"
               target="_blank" rel="noopener noreferrer"
               style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: ".6rem", width: "100%", padding: ".875rem", border: "1px solid rgba(240,237,230,.15)", background: "transparent", color: "#f0ede6", fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", textDecoration: "none", transition: "border-color .3s, background .3s" }}
               className="hover:border-[#f0ede6]/50 hover:bg-white/[0.03]">
