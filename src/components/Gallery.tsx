@@ -145,10 +145,10 @@ function Lightbox({ items, index, onClose, onPrev, onNext }: {
 
           {item.category === "video" ? (
             <video src={item.src} controls autoPlay
-              style={{ maxWidth: "100%", maxHeight: "100%", width: "auto", height: "auto", display: "block", borderRadius: 2 }} />
+              style={{ maxWidth: "calc(100vw - 130px)", maxHeight: "calc(100vh - 100px)", width: "auto", height: "auto", display: "block", borderRadius: 2 }} />
           ) : (
             <img src={item.src} alt={item.alt}
-              style={{ maxWidth: "100%", maxHeight: "100%", width: "auto", height: "auto", display: "block", borderRadius: 2, objectFit: "contain" }} />
+              style={{ maxWidth: "calc(100vw - 130px)", maxHeight: "calc(100vh - 100px)", width: "auto", height: "auto", display: "block", borderRadius: 2 }} />
           )}
         </motion.div>
 
