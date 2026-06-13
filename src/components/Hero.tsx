@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import SplitText from "./SplitText";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Hero() {
   const [ready, setReady] = useState(false);

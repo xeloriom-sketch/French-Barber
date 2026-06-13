@@ -4,7 +4,7 @@ import { useRef } from "react";
 import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const team = [
   { name: "Mehdi",   role: "Fondateur & Barbier Chef", years: "5+ ans", pic: `${basePath}/avatar-2.png`, tags: ["Coupe Classique", "Dégradé", "Barbe"] },

@@ -1,7 +1,7 @@
 import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const reasons = [
   { icon: "fa-medal",          title: "Produits Haut de Gamme",   desc: "Cires, huiles de barbe, soins post-rasage — exclusivement des produits professionnels." },

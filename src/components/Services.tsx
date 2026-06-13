@@ -2,7 +2,7 @@
 import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const services = [
   { icon: "fa-scissors",            name: "Coupe Classique",          price: "15€", time: "30 min", desc: "Shampoing, coupe ciseau ou tondeuse, finition soignée au rasoir." },

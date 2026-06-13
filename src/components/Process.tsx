@@ -2,7 +2,7 @@
 import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const steps = [
   { num: "01", icon: "fa-calendar-plus",   title: "Réservez",         desc: "En ligne ou au 07 45 10 74 01. Choisissez prestation, jour et heure." },

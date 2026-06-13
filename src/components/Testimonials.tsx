@@ -1,7 +1,7 @@
 import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const reviews = [
   { initials: "KB", name: "Karim Belghoul",     type: "Avis Google",   stars: 5, text: "Franchement au top. Super accueil, ambiance cool et surtout une coupe parfaite." },

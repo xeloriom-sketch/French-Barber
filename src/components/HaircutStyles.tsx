@@ -1,7 +1,7 @@
 import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
-const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const cuts = [
   { file: "lucid-origin_Studio_commercial_photography_of_a_handsome_man_from_the_chest_up_three-quarter_-0-2.jpg", name: "Mid Fade",    fr: "Dégradé Moyen",    desc: "Transition naturelle sur les côtés — polyvalent et moderne." },
