@@ -189,10 +189,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSalon) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
-        <link rel="icon" href="/French-Barber/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/French-Barber/favicon.ico" type="image/x-icon" sizes="any" />
-        <link rel="shortcut icon" href="/French-Barber/favicon.ico" />
-        <link rel="apple-touch-icon" href="/French-Barber/favicon.svg" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0d0d0d" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="French Barber" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="sitemap" type="application/xml" href="/French-Barber/sitemap.xml" />
