@@ -4,9 +4,11 @@ import FadeUp from "./FadeUp";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 const photos = [
-  { src: `${basePath}/client-1.webp`, cls: "g1", minH: 300, alt: "Coupe client French Barber Lagnieu", real: true },
-  { src: `${basePath}/client-2.webp`, cls: "g2", minH: 200, alt: "Résultat coupe French Barber", real: true },
-  { src: `${basePath}/client-3.webp`, cls: "g3", minH: 200, alt: "Barbe sculptée French Barber", real: true },
+  { src: `${basePath}/client-1.webp`,          cls: "g1", minH: 300, alt: "Coupe client French Barber Lagnieu", real: true },
+  { src: `${basePath}/client-2.webp`,          cls: "g2", minH: 200, alt: "Résultat coupe French Barber", real: true },
+  { src: `${basePath}/client-3.webp`,          cls: "g3", minH: 200, alt: "Barbe sculptée French Barber", real: true },
+  { src: `${basePath}/nos realisation 1.png`,  cls: "g4", minH: 200, alt: "Réalisation French Barber Lagnieu", real: true },
+  { src: `${basePath}/nos realisation 2.png`,  cls: "g5", minH: 200, alt: "Réalisation coupe French Barber", real: true },
 ];
 
 export default function Gallery() {
