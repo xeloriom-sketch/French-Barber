@@ -295,6 +295,8 @@ body::before {
   transition: border-color .3s, color .3s, background .3s;
 }
 .footer-soc:hover { border-color: #c8864a; color: #c8864a; background: rgba(200,134,74,.08); }
+.footer-credit { font-family: var(--font-accent); font-size: .5625rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(240,237,230,.2); text-decoration: none; transition: color .3s; }
+.footer-credit:hover { color: rgba(240,237,230,.5); }
 
 /* ── CTA STRIP ────────────────────────────────────── */
 .cta-strip {

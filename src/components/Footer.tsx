@@ -76,9 +76,7 @@ export default function Footer() {
             </a>
             <span style={{ color: "rgba(240,237,230,.1)" }}>·</span>
             <a href="https://www.alhambra-web.com" target="_blank" rel="noopener noreferrer" title="Site créé par Alhambra Web"
-              style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(240,237,230,.2)", textDecoration: "none", transition: "color .3s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "rgba(240,237,230,.5)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "rgba(240,237,230,.2)")}>
+              className="footer-credit">
               Site créé par Alhambra Web
             </a>
           </div>
