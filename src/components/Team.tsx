@@ -5,9 +5,9 @@ import FadeUp from "./FadeUp";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 const team = [
-  { name: "Mehdi",   role: "Fondateur & Barbier Chef", years: "5+ ans", pic: `${basePath}/avatar-2.png`,  tags: ["Coupe Classique", "Dégradé", "Barbe"] },
-  { name: "Lucas",   role: "Barbier Confirmé",         years: "3 ans",  pic: `${basePath}/client-1.webp`, tags: ["Skin Fade", "Taper", "Soin Visage"] },
-  { name: "Antoine", role: "Barbier & Styliste",       years: "2 ans",  pic: `${basePath}/client-3.webp`, tags: ["Design Barbe", "Coiffage", "Rasage"] },
+  { name: "Mehdi",   role: "Fondateur & Barbier Chef", years: "5+ ans", pic: `${basePath}/avatar-2.png`, tags: ["Coupe Classique", "Dégradé", "Barbe"] },
+  { name: "Lucas",   role: "Barbier Confirmé",         years: "3 ans",  pic: `${basePath}/avatar-2.png`, tags: ["Skin Fade", "Taper", "Soin Visage"] },
+  { name: "Antoine", role: "Barbier & Styliste",       years: "2 ans",  pic: `${basePath}/avatar-2.png`, tags: ["Design Barbe", "Coiffage", "Rasage"] },
 ];
 
 export default function Team() {
@@ -27,7 +27,8 @@ export default function Team() {
             <article className="team-card-wrap flex flex-col">
               <div className="team-img-wrap">
                 <Image src={m.pic} alt={`${m.name} – ${m.role} chez French Barber Lagnieu`}
-                  width={500} height={667} loading="lazy" className="team-img" />
+                  width={500} height={667} loading="lazy" className="team-img"
+                  style={{ filter: "grayscale(100%)" }} />
                 <div className="team-overlay" />
               </div>
               <div className="pt-5" style={{ borderTop: "1px solid rgba(240,237,230,.08)" }}>
