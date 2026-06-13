@@ -8,17 +8,22 @@ type MediaItem = {
   cls: string;
   minH: number;
   alt: string;
-  real: boolean;
   video?: boolean;
 };
 
 const media: MediaItem[] = [
-  { src: `${basePath}/client-1.webp`,         cls: "g1", minH: 300, alt: "Coupe client French Barber Lagnieu",   real: true },
-  { src: `${basePath}/client-2.webp`,         cls: "g2", minH: 200, alt: "Résultat coupe French Barber",         real: true },
-  { src: `${basePath}/client-3.webp`,         cls: "g3", minH: 200, alt: "Barbe sculptée French Barber",         real: true },
-  { src: `${basePath}/nos realisation 1.png`, cls: "g4", minH: 200, alt: "Réalisation French Barber Lagnieu",    real: true },
-  { src: `${basePath}/nos realisation 2.png`, cls: "g5", minH: 200, alt: "Réalisation coupe French Barber",      real: true },
-  { src: `${basePath}/reel-1.mp4`,            cls: "g6", minH: 300, alt: "Reel French Barber @french_barber_015", real: true, video: true },
+  { src: `${basePath}/reel-1.mp4`,                       cls: "g1",  minH: 340, alt: "Reel coupe French Barber",              video: true },
+  { src: `${basePath}/insta-DWTRLmHjbpC.mp4`,           cls: "g2",  minH: 220, alt: "Reel barbe French Barber",               video: true },
+  { src: `${basePath}/insta-DWOoqWPjY8c.mp4`,           cls: "g3",  minH: 220, alt: "Reel French Barber Lagnieu",             video: true },
+  { src: `${basePath}/insta-Cy6Xf-lKbEo.jpg`,           cls: "g4",  minH: 220, alt: "Coupe client French Barber" },
+  { src: `${basePath}/insta-CywIjxCK1st.jpg`,           cls: "g5",  minH: 220, alt: "Réalisation coupe French Barber" },
+  { src: `${basePath}/insta-CywIdewqriO.jpg`,           cls: "g6",  minH: 220, alt: "Coupe homme French Barber Lagnieu" },
+  { src: `${basePath}/insta-CywISe6qTyp.jpg`,           cls: "g7",  minH: 220, alt: "Barbe sculptée French Barber" },
+  { src: `${basePath}/insta-CywIO4BqAc8.jpg`,           cls: "g8",  minH: 220, alt: "Coupe dégradé French Barber" },
+  { src: `${basePath}/insta-CywIKlXq_lW.jpg`,           cls: "g9",  minH: 220, alt: "Style coiffure French Barber" },
+  { src: `${basePath}/insta-CywIGcuKmvl.jpg`,           cls: "g10", minH: 220, alt: "Finition rasage French Barber" },
+  { src: `${basePath}/insta-CywHP2GqKV0.jpg`,           cls: "g11", minH: 220, alt: "Résultat coupe French Barber" },
+  { src: `${basePath}/insta-CywHKP3Klok.jpg`,           cls: "g12", minH: 220, alt: "Coupe premium French Barber Lagnieu" },
 ];
 
 export default function Gallery() {
@@ -34,7 +39,7 @@ export default function Gallery() {
           </h2>
           <p className="max-w-xs md:text-right"
             style={{ fontFamily: "var(--font-sans)", fontSize: ".875rem", color: "rgba(240,237,230,.4)", lineHeight: 1.75 }}>
-            Photos &amp; vidéos réelles de nos clients.<br />Chaque coupe est unique.
+            Photos &amp; vidéos directement<br />depuis notre Instagram.
           </p>
         </div>
 
@@ -45,39 +50,30 @@ export default function Gallery() {
               {p.video ? (
                 <video
                   src={p.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                  autoPlay muted loop playsInline
                   aria-label={p.alt}
                   className="w-full h-full object-cover"
                 />
               ) : (
                 <img
-                  src={p.src} alt={p.alt} loading={i < 3 ? "eager" : "lazy"}
+                  src={p.src} alt={p.alt} loading={i < 4 ? "eager" : "lazy"}
                   className="w-full h-full object-cover"
                 />
               )}
-              {p.real && (
-                <div className="absolute top-3 left-3 z-10 badge" style={{ fontSize: ".55rem" }}>
-                  <i className="fa-solid fa-check" aria-hidden="true" />French Barber
-                </div>
-              )}
-              {p.video && (
-                <div className="absolute bottom-3 right-3 z-10" style={{ background: "rgba(0,0,0,.5)", borderRadius: 2, padding: ".2rem .45rem" }}>
-                  <i className="fa-brands fa-instagram" style={{ color: "#f0ede6", fontSize: ".65rem" }} aria-hidden="true" />
-                </div>
-              )}
+              <div className="absolute top-3 left-3 z-10 badge" style={{ fontSize: ".55rem" }}>
+                <i className="fa-brands fa-instagram" aria-hidden="true" />french_barber_015
+              </div>
             </div>
           ))}
         </div>
         </FadeUp>
 
-        <p className="mt-6"
-          style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", color: "rgba(240,237,230,.3)", letterSpacing: ".15em", textTransform: "uppercase" }}
-          data-aos="fade-up">
-          Contenu authentique · French Barber Lagnieu · @french_barber_015
-        </p>
+        <div className="mt-8 flex items-center gap-4" data-aos="fade-up">
+          <a href="https://www.instagram.com/french_barber_015" target="_blank" rel="noopener noreferrer"
+            style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.3)", paddingBottom: ".3rem" }}>
+            <i className="fa-brands fa-instagram mr-2" aria-hidden="true" />Voir plus sur Instagram →
+          </a>
+        </div>
 
       </div>
     </section>
