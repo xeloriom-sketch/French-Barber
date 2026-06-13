@@ -161,7 +161,7 @@ export default function Hero() {
           transition={{ delay: 1.1, duration: 0.8 }}
           style={{ color: "rgba(240,237,230,.45)", fontSize: "9px", letterSpacing: ".2em", textTransform: "uppercase" }}>
           <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Fb</a>
-          <a href="#" className="hover:text-white transition-colors">Ig</a>
+          <a href="https://www.instagram.com/FrenchF_barber_015" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Ig</a>
         </motion.div>
       </footer>
     </section>

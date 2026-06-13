@@ -31,9 +31,6 @@ export default function Footer() {
             <a href="https://www.snapchat.com/add/frenchbarber" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" className="footer-soc">
               <i className="fa-brands fa-snapchat" aria-hidden="true" />
             </a>
-            <a href="#" aria-label="TikTok" className="footer-soc">
-              <i className="fa-brands fa-tiktok" aria-hidden="true" />
-            </a>
           </div>
         </div>
 
