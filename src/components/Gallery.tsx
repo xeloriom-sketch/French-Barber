@@ -112,55 +112,60 @@ function Lightbox({ items, index, onClose, onPrev, onNext }: {
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,.92)", display: "flex", alignItems: "center", justifyContent: "center" }}
+      style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,.95)", display: "flex", flexDirection: "column" }}
       onClick={onClose}
       role="dialog" aria-modal="true" aria-label={item.alt}>
 
-      {/* Fermer */}
-      <button onClick={onClose} style={{ position: "absolute", top: 20, right: 24, background: "none", border: "none", cursor: "pointer", color: "rgba(240,237,230,.6)", fontSize: "1.5rem", lineHeight: 1 }} aria-label="Fermer">
-        <i className="fa-solid fa-xmark" />
-      </button>
+      {/* Barre haute */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 20px", flexShrink: 0 }} onClick={e => e.stopPropagation()}>
+        <span style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", letterSpacing: ".2em", color: "rgba(240,237,230,.35)", textTransform: "uppercase" }}>
+          {index + 1} / {items.length}
+        </span>
+        <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "rgba(240,237,230,.6)", fontSize: "1.4rem", lineHeight: 1, padding: 4 }} aria-label="Fermer">
+          <i className="fa-solid fa-xmark" />
+        </button>
+      </div>
 
-      {/* Compteur */}
-      <span style={{ position: "absolute", top: 24, left: 24, fontFamily: "var(--font-accent)", fontSize: ".6rem", letterSpacing: ".2em", color: "rgba(240,237,230,.35)", textTransform: "uppercase" }}>
-        {index + 1} / {items.length}
-      </span>
+      {/* Zone centrale — prend tout l'espace restant */}
+      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", minHeight: 0 }}>
 
-      {/* Précédent */}
-      <button onClick={e => { e.stopPropagation(); onPrev(); }}
-        style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,.5)", border: "1px solid rgba(240,237,230,.15)", borderRadius: 2, cursor: "pointer", color: "#f0ede6", width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center" }}
-        aria-label="Précédent">
-        <i className="fa-solid fa-chevron-left" />
-      </button>
+        {/* Précédent */}
+        <button onClick={e => { e.stopPropagation(); onPrev(); }}
+          style={{ position: "absolute", left: 12, zIndex: 10, background: "rgba(0,0,0,.5)", border: "1px solid rgba(240,237,230,.15)", borderRadius: 2, cursor: "pointer", color: "#f0ede6", width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}
+          aria-label="Précédent">
+          <i className="fa-solid fa-chevron-left" />
+        </button>
 
-      {/* Suivant */}
-      <button onClick={e => { e.stopPropagation(); onNext(); }}
-        style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,.5)", border: "1px solid rgba(240,237,230,.15)", borderRadius: 2, cursor: "pointer", color: "#f0ede6", width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center" }}
-        aria-label="Suivant">
-        <i className="fa-solid fa-chevron-right" />
-      </button>
+        {/* Média — occupe toute la hauteur disponible */}
+        <motion.div key={item.id}
+          initial={{ opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
+          transition={{ type: "spring", damping: 28, stiffness: 280 }}
+          onClick={e => e.stopPropagation()}
+          style={{ height: "100%", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 60px" }}>
 
-      {/* Média */}
-      <motion.div key={item.id}
-        initial={{ opacity: 0, scale: .92 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-        transition={{ type: "spring", damping: 28, stiffness: 280 }}
-        onClick={e => e.stopPropagation()}
-        style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, padding: "0 64px" }}>
+          {item.category === "video" ? (
+            <video src={item.src} controls autoPlay
+              style={{ maxWidth: "100%", maxHeight: "100%", width: "auto", height: "auto", display: "block", borderRadius: 2 }} />
+          ) : (
+            <img src={item.src} alt={item.alt}
+              style={{ maxWidth: "100%", maxHeight: "100%", width: "auto", height: "auto", display: "block", borderRadius: 2, objectFit: "contain" }} />
+          )}
+        </motion.div>
 
-        {item.category === "video" ? (
-          <video src={item.src} controls autoPlay
-            style={{ maxWidth: "90vw", maxHeight: "80vh", width: "auto", height: "auto", borderRadius: 2, background: "#0d0d0d" }} />
-        ) : (
-          <img src={item.src} alt={item.alt}
-            style={{ maxWidth: "90vw", maxHeight: "80vh", width: "auto", height: "auto", display: "block", borderRadius: 2 }} />
-        )}
+        {/* Suivant */}
+        <button onClick={e => { e.stopPropagation(); onNext(); }}
+          style={{ position: "absolute", right: 12, zIndex: 10, background: "rgba(0,0,0,.5)", border: "1px solid rgba(240,237,230,.15)", borderRadius: 2, cursor: "pointer", color: "#f0ede6", width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}
+          aria-label="Suivant">
+          <i className="fa-solid fa-chevron-right" />
+        </button>
+      </div>
 
-        <div style={{ textAlign: "center" }}>
-          <p style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,237,230,.45)" }}>
-            <i className="fa-brands fa-instagram" style={{ marginRight: 5 }} />french_barber_015 · French Barber Lagnieu
-          </p>
-        </div>
-      </motion.div>
+      {/* Barre basse */}
+      <div style={{ textAlign: "center", padding: "12px 20px", flexShrink: 0 }} onClick={e => e.stopPropagation()}>
+        <p style={{ fontFamily: "var(--font-accent)", fontSize: ".55rem", letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,237,230,.35)", margin: 0 }}>
+          <i className="fa-brands fa-instagram" style={{ marginRight: 5 }} />french_barber_015 · French Barber Lagnieu
+        </p>
+      </div>
     </motion.div>
   );
 }
