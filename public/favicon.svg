@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="12" fill="#0d0d0d"/>
+  <!-- Scissors icon -->
+  <g transform="translate(32,32) rotate(-45)" stroke="#f0ede6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left blade -->
+    <circle cx="-9" cy="-6" r="5" stroke-width="2.5"/>
+    <line x1="-4.5" y1="-3.5" x2="11" y2="10" stroke-width="2.5"/>
+    <!-- Right blade -->
+    <circle cx="-9" cy="6" r="5" stroke-width="2.5"/>
+    <line x1="-4.5" y1="3.5" x2="11" y2="-10" stroke-width="2.5"/>
+    <!-- Screw pivot -->
+    <circle cx="0" cy="0" r="1.5" fill="#c8864a" stroke="none"/>
+  </g>
+</svg>

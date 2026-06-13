@@ -189,8 +189,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSalon) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
-        <link rel="icon" href="/French-Barber/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/French-Barber/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/French-Barber/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/French-Barber/favicon.ico" type="image/x-icon" sizes="any" />
+        <link rel="shortcut icon" href="/French-Barber/favicon.ico" />
+        <link rel="apple-touch-icon" href="/French-Barber/favicon.svg" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="sitemap" type="application/xml" href="/French-Barber/sitemap.xml" />
