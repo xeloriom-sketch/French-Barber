@@ -12,9 +12,14 @@ const inp = {
   transition: "border-color .3s, background .3s",
 };
 
+// URL à remplacer par l'adresse de ton hébergement PHP
+const PHP_ENDPOINT = "https://TON-HEBERGEMENT.com/contact.php";
+
 export default function Booking() {
-  const [focused, setFocused] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
+  const [focused, setFocused]   = useState<string | null>(null);
+  const [sent, setSent]         = useState(false);
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState<string | null>(null);
   const g = (n: string) => ({ ...inp, borderColor: focused === n ? "rgba(240,237,230,.5)" : "rgba(240,237,230,.1)", background: focused === n ? "rgba(255,255,255,.06)" : "rgba(255,255,255,.04)" });
   const f = (n: string) => ({ onFocus: () => setFocused(n), onBlur: () => setFocused(null) });
   const lbl = { fontSize: ".625rem", letterSpacing: ".18em", textTransform: "uppercase" as const, color: "rgba(240,237,230,.4)", display: "block", marginBottom: ".5rem", fontFamily: "var(--font-accent)", fontWeight: 600 };
@@ -90,7 +95,35 @@ export default function Booking() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={e => { e.preventDefault(); setSent(true); }} noValidate aria-label="Formulaire de réservation" className="flex flex-col gap-4">
+              <form onSubmit={async e => {
+                  e.preventDefault();
+                  setLoading(true);
+                  setError(null);
+                  const form = e.currentTarget as HTMLFormElement;
+                  const payload = {
+                    name:    (form.elements.namedItem("name")    as HTMLInputElement).value,
+                    phone:   (form.elements.namedItem("phone")   as HTMLInputElement).value,
+                    service: (form.elements.namedItem("service") as HTMLSelectElement).value,
+                    date:    (form.elements.namedItem("date")    as HTMLInputElement).value,
+                    time:    (form.elements.namedItem("time")    as HTMLSelectElement).value,
+                    style:   (form.elements.namedItem("style")   as HTMLSelectElement).value,
+                    message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+                  };
+                  try {
+                    const res = await fetch(PHP_ENDPOINT, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(payload),
+                    });
+                    const json = await res.json();
+                    if (json.success) { setSent(true); }
+                    else { setError(json.message || "Erreur inconnue."); }
+                  } catch {
+                    setError("Impossible d'envoyer. Appelez le 07 45 10 74 01.");
+                  } finally {
+                    setLoading(false);
+                  }
+                }} noValidate aria-label="Formulaire de réservation" className="flex flex-col gap-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div><label htmlFor="bk-name" style={lbl}>Prénom &amp; Nom <span style={{ color: "rgba(240,237,230,.5)" }} aria-hidden="true">*</span></label><input type="text" id="bk-name" name="name" placeholder="Jean Dupont" required autoComplete="name" style={g("name")} {...f("name")} /></div>
                   <div><label htmlFor="bk-phone" style={lbl}>Téléphone <span style={{ color: "rgba(240,237,230,.5)" }} aria-hidden="true">*</span></label><input type="tel" id="bk-phone" name="phone" placeholder="06 00 00 00 00" required autoComplete="tel" style={g("phone")} {...f("phone")} /></div>
@@ -99,12 +132,11 @@ export default function Booking() {
                   <label htmlFor="bk-service" style={lbl}>Prestation <span style={{ color: "rgba(240,237,230,.5)" }} aria-hidden="true">*</span></label>
                   <select id="bk-service" name="service" required style={g("service")} {...f("service")}>
                     <option value="" disabled>Choisissez une prestation…</option>
-                    <option>Coupe Classique — 25€</option>
-                    <option>Taille de Barbe — 15€</option>
-                    <option>Rasage au Coupe-Choux — 20€</option>
-                    <option>Coupe + Barbe — 35€</option>
-                    <option>Soin du Visage — 20€</option>
-                    <option>Pack Complet — 55€</option>
+                    <option>Coupe Classique — 15€</option>
+                    <option>Barbe — 8€</option>
+                    <option>Soin du Visage — 10€</option>
+                    <option>Barbe et Coupe Classique — 20€</option>
+                    <option>Pack Complet — 35€</option>
                   </select>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -130,9 +162,12 @@ export default function Booking() {
                   </select>
                 </div>
                 <div><label htmlFor="bk-msg" style={lbl}>Remarques</label><textarea id="bk-msg" name="message" rows={3} placeholder="Précisions, allergies, préférences particulières…" style={{ ...g("msg"), resize: "none" }} {...f("msg")} /></div>
-                <button type="submit" className="w-full mt-1 flex items-center justify-center gap-2"
-                  style={{ background: "transparent", color: "#f0ede6", fontFamily: "var(--font-accent)", fontSize: ".6875rem", fontWeight: 700, letterSpacing: ".18em", textTransform: "uppercase", padding: ".95rem", border: "1px solid rgba(240,237,230,.2)", cursor: "pointer", transition: "border-color .3s" }}>
-                  Envoyer Ma Demande <i className="fa-solid fa-arrow-right text-[10px]" aria-hidden="true" />
+                {error && (
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: ".8rem", color: "#e57373", textAlign: "center" }}>{error}</p>
+                )}
+                <button type="submit" disabled={loading} className="w-full mt-1 flex items-center justify-center gap-2"
+                  style={{ background: "transparent", color: "#f0ede6", fontFamily: "var(--font-accent)", fontSize: ".6875rem", fontWeight: 700, letterSpacing: ".18em", textTransform: "uppercase", padding: ".95rem", border: "1px solid rgba(240,237,230,.2)", cursor: loading ? "wait" : "pointer", opacity: loading ? 0.6 : 1, transition: "border-color .3s, opacity .3s" }}>
+                  {loading ? "Envoi en cours…" : (<>Envoyer Ma Demande <i className="fa-solid fa-arrow-right text-[10px]" aria-hidden="true" /></>)}
                 </button>
                 <p className="text-center" style={{ fontFamily: "var(--font-sans)", fontSize: ".6875rem", color: "rgba(240,237,230,.2)", letterSpacing: ".05em" }}>
                   Confirmation par téléphone ou SMS dans les plus brefs délais.

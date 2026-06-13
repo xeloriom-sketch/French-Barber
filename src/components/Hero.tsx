@@ -104,6 +104,7 @@ export default function Hero() {
             width: "auto", height: "auto",
             objectFit: "cover",
             opacity: 0.5,
+            filter: "grayscale(100%)",
             pointerEvents: "none",
           }}
         >
@@ -129,12 +130,8 @@ export default function Hero() {
 
         <h1 className="text-left text-white uppercase font-bold tracking-tight select-none mb-8"
           style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)", lineHeight: "0.9", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
-          {ready && (
-            <>
-              <SplitText tag="span" style={{ display: "block" }} delay={0.2}>L&apos;Art Du</SplitText>
-              <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Barbier.</SplitText>
-            </>
-          )}
+          <SplitText tag="span" style={{ display: "block" }} delay={0.2}>French Barber —</SplitText>
+          <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Barbershop À Lagnieu.</SplitText>
         </h1>
 
         <motion.div className="group relative mt-2"

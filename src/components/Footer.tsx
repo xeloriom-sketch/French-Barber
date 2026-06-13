@@ -22,13 +22,13 @@ export default function Footer() {
             <span style={{ fontFamily: "var(--font-accent)", fontSize: ".6875rem", color: "rgba(240,237,230,.35)", fontWeight: 600 }}>4.9/5 · 47 avis Google</span>
           </div>
           <div className="flex gap-3" aria-label="Réseaux sociaux">
-            <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="footer-soc">
+            <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="French Barber sur Facebook" className="footer-soc">
               <i className="fa-brands fa-facebook-f" aria-hidden="true" />
             </a>
-            <a href="https://www.instagram.com/FrenchF_barber_015" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="footer-soc">
+            <a href="https://www.instagram.com/FrenchF_barber_015" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="French Barber sur Instagram" className="footer-soc">
               <i className="fa-brands fa-instagram" aria-hidden="true" />
             </a>
-            <a href="https://www.snapchat.com/add/frenchbarber" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" className="footer-soc">
+            <a href="https://www.snapchat.com/add/frenchbarber" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" title="French Barber sur Snapchat" className="footer-soc">
               <i className="fa-brands fa-snapchat" aria-hidden="true" />
             </a>
           </div>
@@ -42,10 +42,10 @@ export default function Footer() {
               <i className="fa-solid fa-location-dot mt-0.5" style={{ color: "rgba(240,237,230,.4)", fontSize: ".75rem", width: 14 }} aria-hidden="true" />
               <span>36 route du port<br />Lagnieu, 01150<br />Ain — France</span>
             </div>
-            <a href="tel:+33745107401" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)" }}>
+            <a href="tel:+33745107401" title="Appeler French Barber" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)" }}>
               <i className="fa-solid fa-phone" style={{ color: "rgba(240,237,230,.4)", fontSize: ".75rem", width: 14 }} aria-hidden="true" />07 45 10 74 01
             </a>
-            <a href="mailto:frenchbarber01@gmail.com" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)", fontSize: ".8125rem" }}>
+            <a href="mailto:frenchbarber01@gmail.com" title="Envoyer un email à French Barber" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)", fontSize: ".8125rem" }}>
               <i className="fa-solid fa-envelope" style={{ color: "rgba(240,237,230,.4)", fontSize: ".75rem", width: 14 }} aria-hidden="true" />frenchbarber01@gmail.com
             </a>
           </address>
@@ -69,7 +69,7 @@ export default function Footer() {
           <p style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".15em", textTransform: "uppercase", color: "rgba(240,237,230,.2)" }}>
             © {new Date().getFullYear()} French Barber — 36 route du port, Lagnieu 01150. Tous droits réservés.
           </p>
-          <a href="https://www.google.com/maps/search/36+route+du+port+Lagnieu+01150" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.google.com/maps/search/36+route+du+port+Lagnieu+01150" target="_blank" rel="noopener noreferrer" title="Itinéraire vers French Barber sur Google Maps"
             style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(240,237,230,.35)", textDecoration: "none" }}>
             <i className="fa-solid fa-diamond-turn-right mr-1" style={{ fontSize: ".55rem" }} aria-hidden="true" />Nous trouver sur Maps
           </a>
