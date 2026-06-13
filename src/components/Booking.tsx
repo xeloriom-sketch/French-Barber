@@ -12,8 +12,7 @@ const inp = {
   transition: "border-color .3s, background .3s",
 };
 
-// URL à remplacer par l'adresse de ton hébergement PHP
-const PHP_ENDPOINT = "https://TON-HEBERGEMENT.com/contact.php";
+const PHP_ENDPOINT = "http://frenchbarber01.com/contact.php";
 
 export default function Booking() {
   const [focused, setFocused]   = useState<string | null>(null);
