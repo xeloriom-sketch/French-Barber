@@ -12,7 +12,7 @@ const inp = {
   transition: "border-color .3s, background .3s",
 };
 
-const PHP_ENDPOINT = "http://frenchbarber01.com/contact.php";
+const PHP_ENDPOINT = "https://frenchbarber01.com/contact.php";
 
 export default function Booking() {
   const [focused, setFocused]   = useState<string | null>(null);
