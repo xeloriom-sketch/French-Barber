@@ -25,7 +25,7 @@ if (!$name || !$phone || !$service || !$date || !$time) {
     exit;
 }
 
-$to      = "houirib@gmail.com";
+$to      = "frenchbarber01@gmail.com";
 $subject = "=?UTF-8?B?" . base64_encode("Reservation - $name - $date $time") . "?=";
 
 $rows = [
