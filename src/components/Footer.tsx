@@ -69,10 +69,19 @@ export default function Footer() {
           <p style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".15em", textTransform: "uppercase", color: "rgba(240,237,230,.2)" }}>
             © {new Date().getFullYear()} French Barber — 36 route du port, Lagnieu 01150. Tous droits réservés.
           </p>
-          <a href="https://www.google.com/maps/search/36+route+du+port+Lagnieu+01150" target="_blank" rel="noopener noreferrer" title="Itinéraire vers French Barber sur Google Maps"
-            style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(240,237,230,.35)", textDecoration: "none" }}>
-            <i className="fa-solid fa-diamond-turn-right mr-1" style={{ fontSize: ".55rem" }} aria-hidden="true" />Nous trouver sur Maps
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="https://www.google.com/maps/search/36+route+du+port+Lagnieu+01150" target="_blank" rel="noopener noreferrer" title="Itinéraire vers French Barber sur Google Maps"
+              style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(240,237,230,.35)", textDecoration: "none" }}>
+              <i className="fa-solid fa-diamond-turn-right mr-1" style={{ fontSize: ".55rem" }} aria-hidden="true" />Nous trouver sur Maps
+            </a>
+            <span style={{ color: "rgba(240,237,230,.1)" }}>·</span>
+            <a href="https://www.alhambra-web.com" target="_blank" rel="noopener noreferrer" title="Site créé par Alhambra Web"
+              style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(240,237,230,.2)", textDecoration: "none", transition: "color .3s" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "rgba(240,237,230,.5)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(240,237,230,.2)")}>
+              Site créé par Alhambra Web
+            </a>
+          </div>
         </div>
       </div>
     </footer>
