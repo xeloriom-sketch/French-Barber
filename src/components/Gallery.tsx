@@ -145,14 +145,14 @@ function Lightbox({ items, index, onClose, onPrev, onNext }: {
         initial={{ opacity: 0, scale: .92 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
         transition={{ type: "spring", damping: 28, stiffness: 280 }}
         onClick={e => e.stopPropagation()}
-        style={{ maxWidth: "min(90vw, 700px)", maxHeight: "85vh", display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+        style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, padding: "0 64px" }}>
 
         {item.category === "video" ? (
           <video src={item.src} controls autoPlay
-            style={{ maxWidth: "100%", maxHeight: "75vh", borderRadius: 2, background: "#0d0d0d" }} />
+            style={{ maxWidth: "90vw", maxHeight: "80vh", width: "auto", height: "auto", borderRadius: 2, background: "#0d0d0d" }} />
         ) : (
           <img src={item.src} alt={item.alt}
-            style={{ maxWidth: "100%", maxHeight: "75vh", objectFit: "contain", borderRadius: 2, display: "block" }} />
+            style={{ maxWidth: "90vw", maxHeight: "80vh", width: "auto", height: "auto", display: "block", borderRadius: 2 }} />
         )}
 
         <div style={{ textAlign: "center" }}>
