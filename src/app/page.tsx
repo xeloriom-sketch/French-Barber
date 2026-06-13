@@ -5,7 +5,6 @@ import Services      from "@/components/Services";
 import HaircutStyles from "@/components/HaircutStyles";
 import Process       from "@/components/Process";
 import WhyUs         from "@/components/WhyUs";
-import Team          from "@/components/Team";
 import Testimonials  from "@/components/Testimonials";
 import Gallery       from "@/components/Gallery";
 import CTABanner     from "@/components/CTABanner";
@@ -29,7 +28,6 @@ export default function Home() {
         <HaircutStyles />
         <Process />
         <WhyUs />
-        <Team />
         <Gallery />
         <Testimonials />
         <CTABanner />
