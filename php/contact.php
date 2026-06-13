@@ -81,6 +81,17 @@ $html = '<!DOCTYPE html>
         </td>
       </tr>
 
+      <!-- BANNER IMAGE -->
+      <tr>
+        <td style="padding:0;line-height:0;font-size:0;">
+          <img src="https://frenchbarber01.com/client-1.webp"
+               alt="French Barber Lagnieu"
+               width="560"
+               style="display:block;width:100%;max-width:560px;height:200px;object-fit:cover;filter:grayscale(100%);"
+          />
+        </td>
+      </tr>
+
       <!-- SUBTITLE -->
       <tr>
         <td bgcolor="#111111" style="background:#111111;padding:20px 32px;border-bottom:1px solid rgba(240,237,230,.05);">
