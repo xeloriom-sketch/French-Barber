@@ -4,9 +4,10 @@ import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
 const faqs = [
+  { q: "Êtes-vous ouverts le dimanche ?", a: "Oui ! French Barber est ouvert le dimanche de 10h à 19h, ainsi que du lundi au vendredi de 9h à 19h et le samedi de 9h à 18h." },
+  { q: "Quels sont vos tarifs ?", a: "Coupe classique 15€ (30 min), barbe 8€ (20 min), soin du visage 10€ (25 min), barbe + coupe 20€ (50 min), pack complet 35€ (80 min). Des réductions sont disponibles pour les réguliers et les étudiants." },
   { q: "Faut-il réserver à l'avance ?", a: "La réservation est recommandée pour garantir votre créneau. Nous acceptons les clients sans rendez-vous selon disponibilités, mais vous risquez d'attendre. Réservez en ligne ou appelez le 07 45 10 74 01." },
-  { q: "Où se trouve French Barber ?", a: "Nous sommes au 36 route du port, 01150 Lagnieu (Ain), facilement accessible depuis Ambérieu-en-Bugey, Lagnieu et les communes voisines. Parking disponible à proximité." },
-  { q: "Combien de temps dure une prestation ?", a: "Une coupe seule dure environ 30 minutes. La taille de barbe 20 minutes, le rasage au coupe-choux 30 minutes. Le pack Coupe + Barbe dure 50 minutes et le Pack Complet environ 80 minutes." },
+  { q: "Où se trouve French Barber ?", a: "Nous sommes au 36 route du port, 01150 Lagnieu (Ain), facilement accessible depuis Ambérieu-en-Bugey et les communes voisines. Parking disponible à proximité." },
   { q: "Quels modes de paiement acceptez-vous ?", a: "Nous acceptons les espèces et les paiements par carte bancaire (CB, Visa, Mastercard). Pas de chèque." },
   { q: "Proposez-vous des produits à l'achat ?", a: "Oui ! Nous vendons une sélection de produits de coiffure et de soin de la barbe haut de gamme. Demandez conseil à votre barbier lors de votre visite." },
   { q: "Coupez-vous les cheveux des enfants ?", a: "Oui, nous accueillons les enfants à partir de 5 ans. Tarif réduit applicable. Contactez-nous pour plus d'informations." },
