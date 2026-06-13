@@ -70,7 +70,7 @@ export default function Booking() {
                 <p style={{ fontFamily: "var(--font-accent)", fontSize: ".625rem", letterSpacing: ".15em", textTransform: "uppercase", color: "rgba(240,237,230,.35)" }}>
                   36 route du port<br />Lagnieu, 01150 — Ain
                 </p>
-                <a href="https://www.google.com/maps/search/36+route+du+port+Lagnieu+01150" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: ".55rem", padding: ".5rem 1rem", marginTop: ".5rem" }}>
+                <a href="https://maps.app.goo.gl/u2vVjvnwhrU4e5Te9" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: ".55rem", padding: ".5rem 1rem", marginTop: ".5rem" }}>
                   <i className="fa-solid fa-diamond-turn-right text-[9px]" aria-hidden="true" />Itinéraire
                 </a>
               </div>

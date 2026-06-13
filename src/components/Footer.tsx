@@ -70,7 +70,7 @@ export default function Footer() {
             © {new Date().getFullYear()} French Barber — 36 route du port, Lagnieu 01150. Tous droits réservés.
           </p>
           <div className="flex items-center gap-4">
-            <a href="https://www.google.com/maps/search/36+route+du+port+Lagnieu+01150" target="_blank" rel="noopener noreferrer" title="Itinéraire vers French Barber sur Google Maps"
+            <a href="https://maps.app.goo.gl/u2vVjvnwhrU4e5Te9" target="_blank" rel="noopener noreferrer" title="Itinéraire vers French Barber sur Google Maps"
               style={{ fontFamily: "var(--font-accent)", fontSize: ".5625rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(240,237,230,.35)", textDecoration: "none" }}>
               <i className="fa-solid fa-diamond-turn-right mr-1" style={{ fontSize: ".55rem" }} aria-hidden="true" />Nous trouver sur Maps
             </a>

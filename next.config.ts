@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
+const isIonos = process.env.DEPLOY_TARGET === "ionos";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd ? "/French-Barber" : "",
-  assetPrefix: isProd ? "/French-Barber/" : "",
+  basePath: isProd && !isIonos ? "/French-Barber" : "",
+  assetPrefix: isProd && !isIonos ? "/French-Barber/" : "",
   trailingSlash: true,
   images: {
     unoptimized: true, // required for static export
