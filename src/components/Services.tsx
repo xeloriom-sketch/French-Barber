@@ -5,12 +5,11 @@ import FadeUp from "./FadeUp";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 const services = [
-  { icon: "fa-scissors",            name: "Coupe Classique",    price: "25€", time: "30 min", desc: "Shampoing, coupe ciseau ou tondeuse, finition soignée au rasoir." },
-  { icon: "fa-face-smile",          name: "Taille de Barbe",    price: "15€", time: "20 min", desc: "Mise en forme précise avec serviette chaude et baume hydratant." },
-  { icon: "fa-fire",                name: "Rasage Coupe-Choux", price: "20€", time: "30 min", desc: "Serviette chaude, savon artisanal, rasoir droit — rituel traditionnel." },
-  { icon: "fa-wand-magic-sparkles", name: "Coupe + Barbe",      price: "35€", time: "50 min", desc: "Le duo parfait : coupe complète + taille de barbe en une séance." },
-  { icon: "fa-leaf",                name: "Soin du Visage",     price: "20€", time: "25 min", desc: "Masque purifiant aux actifs botaniques, hydratation profonde." },
-  { icon: "fa-crown",               name: "Pack Complet",       price: "55€", time: "80 min", desc: "Coupe + barbe + rasage + soin. L'expérience French Barber totale." },
+  { icon: "fa-scissors",            name: "Coupe Classique",          price: "15€", time: "30 min", desc: "Shampoing, coupe ciseau ou tondeuse, finition soignée au rasoir." },
+  { icon: "fa-face-smile",          name: "Barbe",                    price: "8€",  time: "20 min", desc: "Mise en forme précise avec serviette chaude et baume hydratant." },
+  { icon: "fa-leaf",                name: "Soin du Visage",           price: "10€", time: "25 min", desc: "Masque purifiant aux actifs botaniques, hydratation profonde." },
+  { icon: "fa-wand-magic-sparkles", name: "Barbe et Coupe Classique", price: "20€", time: "50 min", desc: "Le duo parfait : coupe complète + taille de barbe en une séance." },
+  { icon: "fa-crown",               name: "Pack Complet",             price: "35€", time: "80 min", desc: "Coupe + barbe + soin. L'expérience French Barber totale." },
 ];
 
 export default function Services() {

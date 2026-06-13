@@ -25,8 +25,11 @@ export default function Footer() {
             <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="footer-soc">
               <i className="fa-brands fa-facebook-f" aria-hidden="true" />
             </a>
-            <a href="#" aria-label="Instagram" className="footer-soc">
+            <a href="https://www.instagram.com/FrenchF_barber_015" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="footer-soc">
               <i className="fa-brands fa-instagram" aria-hidden="true" />
+            </a>
+            <a href="https://www.snapchat.com/add/frenchbarber" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" className="footer-soc">
+              <i className="fa-brands fa-snapchat" aria-hidden="true" />
             </a>
             <a href="#" aria-label="TikTok" className="footer-soc">
               <i className="fa-brands fa-tiktok" aria-hidden="true" />
@@ -58,7 +61,7 @@ export default function Footer() {
             {[["Lundi","9h – 19h"],["Mardi","9h – 19h"],["Mercredi","9h – 19h"],["Jeudi","9h – 19h"],["Vendredi","9h – 19h"],["Samedi","9h – 18h"]].map(([day, h]) => (
               <div key={day} className="flex justify-between" style={{ color: "rgba(240,237,230,.5)" }}><span>{day}</span><span>{h}</span></div>
             ))}
-            <div className="flex justify-between" style={{ color: "rgba(240,237,230,.2)", textDecoration: "line-through" }} aria-label="Dimanche fermé"><span>Dimanche</span><span>Fermé</span></div>
+            <div className="flex justify-between" style={{ color: "rgba(240,237,230,.5)" }}><span>Dimanche</span><span>10h – 19h</span></div>
           </div>
         </div>
       </div>

@@ -5,12 +5,11 @@ import FadeUp from "./FadeUp";
 const basePath = process.env.NODE_ENV === "production" ? "/French-Barber" : "";
 
 const items = [
-  { name: "Coupe Classique",    price: "25€", time: "30 min" },
-  { name: "Taille de Barbe",    price: "15€", time: "20 min" },
-  { name: "Rasage Coupe-Choux", price: "20€", time: "30 min" },
-  { name: "Coupe + Barbe",      price: "35€", time: "50 min" },
-  { name: "Soin du Visage",     price: "20€", time: "25 min" },
-  { name: "Pack Complet",       price: "55€", time: "80 min" },
+  { name: "Coupe Classique",          price: "15€", time: "30 min" },
+  { name: "Barbe",                    price: "8€",  time: "20 min" },
+  { name: "Soin du Visage",           price: "10€", time: "25 min" },
+  { name: "Barbe et Coupe Classique", price: "20€", time: "50 min" },
+  { name: "Pack Complet",             price: "35€", time: "80 min" },
 ];
 
 export default function Pricing() {
