@@ -108,7 +108,7 @@ const jsonLdSalon = {
   },
   sameAs: [
     "https://www.facebook.com/p/French-Barber-61552611964085/",
-    "https://www.instagram.com/FrenchF_barber_015",
+    "https://www.instagram.com/french_barber_015",
     "https://www.snapchat.com/add/frenchbarber",
   ],
   hasOfferCatalog: {

@@ -25,7 +25,7 @@ export default function Footer() {
             <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="French Barber sur Facebook" className="footer-soc">
               <i className="fa-brands fa-facebook-f" aria-hidden="true" />
             </a>
-            <a href="https://www.instagram.com/FrenchF_barber_015" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="French Barber sur Instagram" className="footer-soc">
+            <a href="https://www.instagram.com/french_barber_015" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="French Barber sur Instagram" className="footer-soc">
               <i className="fa-brands fa-instagram" aria-hidden="true" />
             </a>
             <a href="https://www.snapchat.com/add/frenchbarber" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" title="French Barber sur Snapchat" className="footer-soc">
