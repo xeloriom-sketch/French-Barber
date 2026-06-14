@@ -272,7 +272,7 @@ export default function Gallery() {
 
         {/* Lien Instagram */}
         <div className="mt-10" data-aos="fade-up">
-          <a href="https://www.instagram.com/french_barber_015" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/french_barber_015" target="_blank" rel="noopener noreferrer" title="Voir nos réalisations sur Instagram"
             style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.3)", paddingBottom: ".3rem" }}>
             <i className="fa-brands fa-instagram mr-2" />Voir plus sur Instagram →
           </a>

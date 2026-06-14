@@ -201,7 +201,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-title" content="French Barber" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        <link rel="sitemap" type="application/xml" href="/French-Barber/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <meta name="geo.region" content="FR-01" />
         <meta name="geo.placename" content="Lagnieu" />
         <meta name="geo.position" content="45.909;5.346" />

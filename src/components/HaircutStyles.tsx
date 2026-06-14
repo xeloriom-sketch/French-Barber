@@ -43,7 +43,7 @@ export default function HaircutStyles() {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400"
                   style={{ background: "rgba(13,13,13,.65)" }}>
-                  <a href="#booking"
+                  <a href="#booking" title="Réserver chez French Barber Lagnieu"
                     style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.4)", paddingBottom: ".3rem" }}>
                     Réserver ce style →
                   </a>

@@ -138,7 +138,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={ready ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}>
-          <a href="#booking"
+          <a href="#booking" title="Réserver chez French Barber Lagnieu"
             className="text-[11px] tracking-[0.25em] uppercase text-[#f0ede6]/80 group-hover:text-white transition-colors duration-300 pb-2 block">
             Réserver maintenant
           </a>
@@ -157,8 +157,8 @@ export default function Hero() {
           initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}}
           transition={{ delay: 1.1, duration: 0.8 }}
           style={{ color: "rgba(240,237,230,.45)", fontSize: "9px", letterSpacing: ".2em", textTransform: "uppercase" }}>
-          <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Fb</a>
-          <a href="https://www.instagram.com/french_barber_015" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Ig</a>
+          <a href="https://www.facebook.com/p/French-Barber-61552611964085/" target="_blank" rel="noopener noreferrer" title="French Barber sur Facebook" className="hover:text-white transition-colors">Fb</a>
+          <a href="https://www.instagram.com/french_barber_015" target="_blank" rel="noopener noreferrer" title="French Barber sur Instagram" className="hover:text-white transition-colors">Ig</a>
         </motion.div>
       </footer>
     </section>

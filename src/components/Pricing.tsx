@@ -67,7 +67,7 @@ export default function Pricing() {
 
             <div className="mt-10 flex items-center gap-6">
               <a
-                href="#booking"
+                href="#booking" title="Réserver chez French Barber Lagnieu"
                 style={{
                   fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700,
                   letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6",

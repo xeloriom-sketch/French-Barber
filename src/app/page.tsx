@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Loader />
       <AosInit />
-      <a href="#main" className="skip-to-main">Aller au contenu principal</a>
+      <a href="#main" title="Aller au contenu principal" className="skip-to-main">Aller au contenu principal</a>
       <Navbar />
       <main id="main">
         <Hero />

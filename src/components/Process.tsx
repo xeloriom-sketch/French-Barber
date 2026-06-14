@@ -47,7 +47,7 @@ export default function Process() {
             ))}
 
             <div className="mt-10">
-              <a href="#booking"
+              <a href="#booking" title="Réserver chez French Barber Lagnieu"
                 style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.3)", paddingBottom: ".3rem", transition: "border-color .3s" }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "#f0ede6")}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(240,237,230,.3)")}>

@@ -20,7 +20,7 @@ export default function CTABanner() {
 
           <div className="lg:col-span-5 flex flex-row items-end" style={{ gap: "3rem" }}>
             <FadeUp delay={0.2}>
-              <a href="#booking"
+              <a href="#booking" title="Réserver chez French Barber Lagnieu"
                 style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "#f0ede6", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.3)", paddingBottom: ".3rem", transition: "border-color .3s", display: "inline-block", whiteSpace: "nowrap" }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "#f0ede6")}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(240,237,230,.3)")}>
@@ -28,8 +28,8 @@ export default function CTABanner() {
               </a>
             </FadeUp>
             <FadeUp delay={0.35}>
-              <a href="tel:+33745107401"
-                style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,237,230,.45)", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.15)", paddingBottom: ".3rem", transition: "border-color .3s, color .3s", display: "inline-block", whiteSpace: "nowrap" }}
+              <a href="tel:+33745107401" title="Appeler French Barber"
+              style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,237,230,.45)", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.15)", paddingBottom: ".3rem", transition: "border-color .3s, color .3s", display: "inline-block", whiteSpace: "nowrap" }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(240,237,230,.4)"; e.currentTarget.style.color = "#f0ede6"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(240,237,230,.15)"; e.currentTarget.style.color = "rgba(240,237,230,.45)"; }}>
                 07 45 10 74 01 →
