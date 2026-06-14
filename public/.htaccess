@@ -1,0 +1,45 @@
+Options -Indexes
+
+# ── WWW → non-www (301) ───────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.frenchbarber01\.com$ [NC]
+RewriteRule ^(.*)$ https://frenchbarber01.com/$1 [R=301,L]
+
+# ── HTTPS forcé ──────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://frenchbarber01.com/$1 [R=301,L]
+
+# ── HSTS ─────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Cache images / vidéos ────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp       "access plus 3 months"
+  ExpiresByType image/jpeg       "access plus 3 months"
+  ExpiresByType image/png        "access plus 3 months"
+  ExpiresByType image/svg+xml    "access plus 1 year"
+  ExpiresByType image/x-icon     "access plus 1 year"
+  ExpiresByType video/mp4        "access plus 3 months"
+  ExpiresByType text/css         "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/json "access plus 1 day"
+</IfModule>
+
+# ── Compression GZIP ─────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ── 404 custom ───────────────────────────────────────
+ErrorDocument 404 /404/index.html
+
+# ── SPA fallback (Next.js static) ────────────────────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]

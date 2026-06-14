@@ -11,7 +11,7 @@ const faqs = [
   { q: "Quels modes de paiement acceptez-vous ?", a: "Nous acceptons les espèces et les paiements par carte bancaire (CB, Visa, Mastercard). Pas de chèque." },
   { q: "Proposez-vous des produits à l'achat ?", a: "Oui ! Nous vendons une sélection de produits de coiffure et de soin de la barbe haut de gamme. Demandez conseil à votre barbier lors de votre visite." },
   { q: "Coupez-vous les cheveux des enfants ?", a: "Oui, nous accueillons les enfants à partir de 5 ans. Tarif réduit applicable. Contactez-nous pour plus d'informations." },
-  { q: "Peut-on offrir une séance en cadeau ?", a: "Absolument ! Nous proposons des bons cadeaux. Contactez-nous au 07 45 10 74 01 ou par email à frenchbarber01@gmail.com pour les commander." },
+  { q: "Peut-on offrir une séance en cadeau ?", a: "Absolument ! Nous proposons des bons cadeaux. Contactez-nous au 07 45 10 74 01 ou par email à frenchbarber01&#64;gmail.com pour les commander." },
 ];
 
 export default function FAQ() {
@@ -54,7 +54,7 @@ export default function FAQ() {
             </a>
             <a href="mailto:frenchbarber01@gmail.com"
               style={{ fontFamily: "var(--font-accent)", fontSize: ".6rem", fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(240,237,230,.45)", textDecoration: "none", borderBottom: "1px solid rgba(240,237,230,.15)", paddingBottom: ".3rem" }}>
-              frenchbarber01@gmail.com →
+              frenchbarber01&#64;gmail.com →
             </a>
           </div>
         </div>

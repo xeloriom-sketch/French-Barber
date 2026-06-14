@@ -38,4 +38,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://xeloriom-sketch.github.io/French-Barber/sitemap.xml
+Sitemap: https://frenchbarber01.com/sitemap.xml
