@@ -124,7 +124,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -20 }}
           animate={ready ? { opacity: 0.4, x: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}>
-          <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Depuis 1998</span>
+          <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Depuis 2012</span>
           <span className="w-8 h-[1px] bg-[#f0ede6]" />
         </motion.div>
 
