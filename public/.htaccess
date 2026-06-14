@@ -37,9 +37,4 @@ RewriteRule ^(.*)$ https://frenchbarber01.com/$1 [R=301,L]
 </IfModule>
 
 # ── 404 custom ───────────────────────────────────────
-ErrorDocument 404 /404/index.html
-
-# ── SPA fallback (Next.js static) ────────────────────
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.html [L]
+ErrorDocument 404 /404.html
