@@ -44,7 +44,7 @@ export default function Booking() {
               {[
                 { icon: "fa-location-dot", label: "Adresse",   val: "36 route du port, Lagnieu 01150" },
                 { icon: "fa-phone",        label: "Téléphone", val: "07 45 10 74 01", href: "tel:+33745107401" },
-                { icon: "fa-envelope",     label: "Email",     val: "frenchbarber01&#64;gmail.com", href: "mailto:frenchbarber01@gmail.com" },
+                { icon: "fa-envelope",     label: "Email",     val: "Frenchbarber212&#64;gmail.com", href: "mailto:Frenchbarber212@gmail.com" },
                 { icon: "fa-clock",        label: "Horaires",  val: "Lun–Ven 9h–19h · Sam 9h–18h" },
               ].map(item => (
                 <div key={item.label} className="flex items-start gap-4">

@@ -75,7 +75,7 @@ const jsonLdSalon = {
   description: "Barbershop premium à Lagnieu (Ain, 01150). Coupe homme, barbe, soin du visage, pack complet. Ouvert 7 jours sur 7 dont le dimanche de 10h à 19h.",
   url: BASE,
   telephone: "+33745107401",
-  email: "frenchbarber01@gmail.com",
+  email: "Frenchbarber212@gmail.com",
   priceRange: "€",
   currenciesAccepted: "EUR",
   paymentAccepted: "Cash, Credit Card",
@@ -177,7 +177,7 @@ const jsonLdFaq = {
     {
       "@type": "Question",
       name: "Peut-on offrir une séance en bon cadeau ?",
-      acceptedAnswer: { "@type": "Answer", text: "Absolument ! Nous proposons des bons cadeaux. Contactez-nous au 07 45 10 74 01 ou à frenchbarber01@gmail.com pour les commander." },
+      acceptedAnswer: { "@type": "Answer", text: "Absolument ! Nous proposons des bons cadeaux. Contactez-nous au 07 45 10 74 01 ou à Frenchbarber212@gmail.com pour les commander." },
     },
   ],
 };

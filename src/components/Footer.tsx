@@ -45,8 +45,8 @@ export default function Footer() {
             <a href="tel:+33745107401" title="Appeler French Barber" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)" }}>
               <i className="fa-solid fa-phone" style={{ color: "rgba(240,237,230,.4)", fontSize: ".75rem", width: 14 }} aria-hidden="true" />07 45 10 74 01
             </a>
-            <a href="mailto:frenchbarber01@gmail.com" title="Envoyer un email à French Barber" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)", fontSize: ".8125rem" }}>
-              <i className="fa-solid fa-envelope" style={{ color: "rgba(240,237,230,.4)", fontSize: ".75rem", width: 14 }} aria-hidden="true" />frenchbarber01@gmail.com
+            <a href="mailto:Frenchbarber212@gmail.com" title="Envoyer un email à French Barber" className="flex items-center gap-3 hover:text-[#f0ede6] transition-colors" style={{ textDecoration: "none", color: "rgba(240,237,230,.5)", fontSize: ".8125rem" }}>
+              <i className="fa-solid fa-envelope" style={{ color: "rgba(240,237,230,.4)", fontSize: ".75rem", width: 14 }} aria-hidden="true" />Frenchbarber212@gmail.com
             </a>
           </address>
         </div>
