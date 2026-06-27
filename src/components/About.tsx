@@ -28,7 +28,12 @@ export default function About() {
               </FadeUp>
               <FadeUp delay={0.2}>
                 <p className="text-[#f0ede6]/60 font-light" style={{ fontSize: "0.9rem", lineHeight: "1.8", fontFamily: "var(--font-sans)" }}>
-                  Nous prenons soin de vos cheveux et voulons que votre coupe soit parfaite. Nos barbiers sont à votre disposition pour vous conseiller et vous aider à trouver le style qui vous correspond.
+                  Nos coiffeurs et barbiers prennent soin de vos cheveux et voulons que votre coupe soit parfaite. Notre équipe est à votre disposition pour vous conseiller et vous aider à trouver le style qui vous correspond.
+                </p>
+              </FadeUp>
+              <FadeUp delay={0.3}>
+                <p className="text-[#f0ede6]/60 font-light" style={{ fontSize: "0.9rem", lineHeight: "1.8", fontFamily: "var(--font-sans)" }}>
+                  Basé au 36 route du port à Lagnieu (01150), votre coiffeur homme accueille les clients de Lagnieu, Ambérieu-en-Bugey, Béligneux, Pont-d&apos;Ain, Saint-Rambert-en-Bugey et tout l&apos;Ain — 7 jours sur 7.
                 </p>
               </FadeUp>
             </div>

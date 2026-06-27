@@ -4,12 +4,13 @@ import SplitText from "./SplitText";
 import FadeUp from "./FadeUp";
 
 const faqs = [
+  { q: "Y a-t-il un coiffeur homme à Lagnieu ?", a: "Oui ! French Barber est votre coiffeur et barbershop homme à Lagnieu (Ain, 01150), au 36 route du port. Ouvert 7j/7 dont dimanche, sur rendez-vous ou sans. ☎ 07 45 10 74 01." },
+  { q: "French Barber est-il un coiffeur ou un barbershop ?", a: "Les deux ! French Barber est à la fois un salon de coiffure homme et un barbershop premium à Lagnieu. Coupes classiques, dégradés, coupes tendance, taille de barbe et soins du visage." },
   { q: "Êtes-vous ouverts le dimanche ?", a: "Oui ! French Barber est ouvert le dimanche de 10h à 19h, ainsi que du lundi au vendredi de 9h à 19h et le samedi de 9h à 18h." },
   { q: "Quels sont vos tarifs ?", a: "Coupe classique 15€ (30 min), barbe 8€ (20 min), soin du visage 10€ (25 min), barbe + coupe 20€ (50 min), pack complet 35€ (80 min). Des réductions sont disponibles pour les réguliers et les étudiants." },
   { q: "Faut-il réserver à l'avance ?", a: "La réservation est recommandée pour garantir votre créneau. Nous acceptons les clients sans rendez-vous selon disponibilités, mais vous risquez d'attendre. Réservez en ligne ou appelez le 07 45 10 74 01." },
-  { q: "Où se trouve French Barber ?", a: "Nous sommes au 36 route du port, 01150 Lagnieu (Ain), facilement accessible depuis Ambérieu-en-Bugey et les communes voisines. Parking disponible à proximité." },
+  { q: "Où se trouve le coiffeur French Barber à Lagnieu ?", a: "Nous sommes au 36 route du port, 01150 Lagnieu (Ain). Accessible depuis Ambérieu-en-Bugey, Béligneux, Pont-d'Ain et les communes voisines. Parking à proximité." },
   { q: "Quels modes de paiement acceptez-vous ?", a: "Nous acceptons les espèces et les paiements par carte bancaire (CB, Visa, Mastercard). Pas de chèque." },
-  { q: "Proposez-vous des produits à l'achat ?", a: "Oui ! Nous vendons une sélection de produits de coiffure et de soin de la barbe haut de gamme. Demandez conseil à votre barbier lors de votre visite." },
   { q: "Coupez-vous les cheveux des enfants ?", a: "Oui, nous accueillons les enfants à partir de 5 ans. Tarif réduit applicable. Contactez-nous pour plus d'informations." },
   { q: "Peut-on offrir une séance en cadeau ?", a: "Absolument ! Nous proposons des bons cadeaux. Contactez-nous au 07 45 10 74 01 ou par email à Frenchbarber212@gmail.com pour les commander." },
 ];

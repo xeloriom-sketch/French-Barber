@@ -84,7 +84,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" aria-label="French Barber — Barbershop à Lagnieu"
+    <section id="hero" aria-label="French Barber — Coiffeur & Barbershop Homme à Lagnieu (Ain)"
       className="relative w-full min-h-screen text-[#f0ede6] flex flex-col justify-between overflow-hidden select-none font-sans"
       style={{ background: "radial-gradient(circle at 50% 50%, #3a4646 0%, #222a2a 60%, #171d1d 100%)" }}>
 
@@ -131,7 +131,7 @@ export default function Hero() {
         <h1 className="text-left text-white uppercase font-bold tracking-tight select-none mb-8"
           style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)", lineHeight: "0.9", fontFamily: "var(--font-title), 'Impact', 'Arial Black', sans-serif" }}>
           <SplitText tag="span" style={{ display: "block" }} delay={0.2}>French Barber —</SplitText>
-          <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Barbershop À Lagnieu.</SplitText>
+          <SplitText tag="span" style={{ display: "block" }} delay={0.45}>Coiffeur & Barbier À Lagnieu.</SplitText>
         </h1>
 
         <motion.div className="group relative mt-2"
